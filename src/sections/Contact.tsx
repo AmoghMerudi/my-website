@@ -1,10 +1,180 @@
+import {motion} from "framer-motion"
+
 export default function Contact(){
     return(
         <section
             id = "contact"
-            className = "min-h-screen flex items-center justify-center"
+            className = "min-h-screen px-6 flex items-center justify-center"
         >
-            <h1 className = "text-5xl font-semibold">Contact</h1>
+            <div className = "w-full max-w-5xl">
+                <motion.h2 
+                    className = "text-5xl md:text-6xl text-indigo-500 text-center font-bold tracking-tighter mb-12"
+                    initial = {{opacity: 0, y:16 }}
+                    whileInView = {{opacity: 1, y: 0}}
+                    viewport = {{once: false}}
+                    transition = {{duration: 0.5, ease: "easeOut"}}
+                >
+                    Get in Touch
+                </motion.h2>
+
+                <motion.div 
+                    className = "grid grid-cols-1 md:grid-cols-2 gap-8"
+                    initial = "hidden"
+                    whileInView="visible"
+                    viewport = {{once: false}}
+                    variants = {{
+                        hidden: {},
+                        visible: {
+                            transition: {staggerChildren: 0.15}
+                        },
+                    }}
+                >
+                    {/**Contact Card*/}
+                    <motion.div 
+                        className = "rounded-2xl border border-white/10 bg-white/5 p-8"
+                        variants={{
+                            hidden: {opacity: 0, y: 20},
+                            visible: {opacity: 1, y: 0},
+                        }}
+                        transition = {{duration: 0.55, ease: "easeOut"}}
+                    >
+                        <h3 className = "text-2xl font-medium mb-4">
+                            Let's Build something. 
+                        </h3>
+
+                        <p className = "text-white/85 mb-8">
+                            Whether it's a project, collaboration or opportunity - my inbox is always open. 
+                            Let's talk about how we can achieve your goals, or connect for a quick chat
+                        </p>
+
+                        <div className = "space-y-4">
+                            <motion.a 
+                                href = "mailto: amoghmerudi@gmail.com"
+                                whileHover={{y: -4}}
+                                transition={{type: "spring", stiffness: 250, damping: 20}}
+                                className="
+                                block
+                                w-fit
+                                px-5 py-3
+                                rounded-full
+                                bg-white text-black
+                                font-medium
+                                hover:bg-white/90
+                                transition
+                                "
+                            >
+                                Email me
+                            </motion.a>
+
+                            <motion.a
+                                href = "/resume.pdf"
+                                target = "_blank"
+                                rel = "noopener noreferrer"
+                                whileHover={{y: -4}}
+                                transition={{type: "spring", stiffness: 250, damping: 20}}
+                                className="
+                                    block
+                                    w-fit
+                                    px-5 py-3
+                                    rounded-full
+                                    border border-white/20
+                                    text-wite/80
+                                    hover:text-white
+                                    hover:border-white/40
+                                    transition
+                                "
+                            >
+                                View Resume (PDF)
+                            </motion.a>
+                        </div>
+                    </motion.div>
+
+                    {/**Social*/}
+                    <motion.div 
+                        className = "rounded-2xl border border-white/10 bg-white/5 p-8"
+                        variants={{
+                            hidden: {opacity: 0, y: 20},
+                            visible: {opacity: 1, y: 0},
+                        }}
+                        transition = {{duration: 0.55, ease: "easeOut"}}                        
+                    >
+                        <h3 className = "text-2xl font-medium mb-6">
+                            Find me online
+                        </h3>
+
+                        <ul className = "space-y-4">
+                            <li>
+                                <motion.a
+                                    href = "https://github.com/AmoghMerudi"
+                                    target = "_blank"
+                                    rel = "noopener noreferrer"
+                                    whileHover={{y: -4}}
+                                    transition={{type: "spring", stiffness: 250, damping: 20}}
+                                    className="
+                                        flex items-center
+                                        justify-between
+                                        px-4 py-3
+                                        rounded-xl
+                                        border border-white/10
+                                        hover:border-white/30
+                                        hover:bg-white/5
+                                        transition
+                                    "
+                                >
+                                    <span>GitHub</span>
+                                    <span className = "text-white/40">→</span>
+                                </motion.a>
+                            </li>
+
+                            <li>
+                                <motion.a
+                                    href = "https://www.linkedin.com/in/amogh-merudi-83012836a/"
+                                    target = "_blank"
+                                    rel = "noopener noreferrer"
+                                    whileHover={{y: -4}}
+                                    transition={{type: "spring", stiffness: 250, damping: 20}}
+                                    className="
+                                        flex items-center
+                                        justify-between
+                                        px-4 py-3
+                                        rounded-xl
+                                        border border-white/10
+                                        hover:border-white/30
+                                        hover:bg-white/5
+                                        transition
+                                    "
+                                >
+                                    <span>LinkedIn</span>
+                                    <span className = "text-white/40">→</span>
+                                </motion.a>
+                            </li>
+
+                            <li>
+                                <motion.a
+                                    href = "https://www.instagram.com/theamoghmerudi/?hl=en"
+                                    target = "_blank"
+                                    rel = "noopener noreferrer"
+                                    whileHover={{y: -4}}
+                                    transition={{type: "spring", stiffness: 250, damping: 20}}
+                                    className="
+                                        flex items-center
+                                        justify-between
+                                        px-4 py-3
+                                        rounded-xl
+                                        border border-white/10
+                                        hover:border-white/30
+                                        hover:bg-white/5
+                                        transition
+                                    "
+                                >
+                                    <span>Instagram</span>
+                                    <span className = "text-white/40">→</span>
+                                </motion.a>
+                            </li>
+                        </ul>
+                    </motion.div>
+                </motion.div>
+            </div>
         </section>
     )
 }

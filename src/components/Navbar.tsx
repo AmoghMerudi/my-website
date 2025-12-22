@@ -23,6 +23,7 @@ export default function Navbar(){
     <nav
         className = {`
                 fixed top-6 left-1/2 -translate-x-1/2 z-50
+					 flex
                 rounded-3xl
                 //border border-white/15
                 bg-[#111e39]/80 backdrop-blur-sm
@@ -30,24 +31,32 @@ export default function Navbar(){
                 ${scrolled ? "shadow-lg": ""}
             `}
     >
-        <div className = "flex items-center gap-2 px-4 py-4 rounded_full">
+        <div className = "flex items-center gap-2 px-4 py-3 rounded_full">
             {/**Logo*/}
             <div className = "font-semibold tracking-light px-2">
                 <a
-                    href="#hero"
-                    className="
-                        px-4 py-2
-                        rounded-full
-                        text-[22px] font-semibold
-                        hover:bg-white/10
-                        transition
-                    "
-                >
-                    AM
-                </a>
+						href="#hero"
+						className="
+							px-3 py-2
+							rounded-full
+							hover:bg-white/10
+							transition
+							flex items-center justify-center
+						"
+						>
+						<div className="h-8 w-13 flex items-center justify-center">
+							<img
+								src="/logo.png"
+								alt="Amogh logo"
+								className="h-full w-auto object-contain"
+							/>
+						</div>
+					</a>
             </div>
+
             {/**Divider*/}
             <div className = "h-7 w-px bg-white/20 mx-2"/>
+
             {/**Links*/}
             <div className="flex items-center gap-1">
                 {links.map((link) => (

@@ -64,8 +64,10 @@ export default function Hero(){
                     </p>
 
                     <div className = "flex items-center justify-center gap-4">
-                        <a
+                        <motion.a
                             href="#projects"
+                            whileHover={{y: -4}}
+                            transition={{type: "spring", stiffness: 250, damping: 20}}
                             className="
                             px-6 py-3 rounded-full
                             bg-white text-black
@@ -75,9 +77,12 @@ export default function Hero(){
                             "
                         >
                             View Projects
-                        </a>
-                        <a
+                        </motion.a>
+
+                        <motion.a
                             href="#contact"
+                            whileHover={{y: -4}}
+                            transition={{type: "spring", stiffness: 250, damping: 20}}
                             className="
                             px-6 py-3 
                             rounded-full
@@ -89,7 +94,7 @@ export default function Hero(){
                             "
                         >
                             Get in Touch!
-                        </a>
+                        </motion.a>
                     </div>
                 </motion.div>
             </motion.div>
