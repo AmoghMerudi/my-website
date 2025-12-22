@@ -1,11 +1,19 @@
+import Hero from "./sections/Hero"
+import About from "./sections/About"
+import Contact from "./sections/Contact"
+import Experience from "./sections/Experience"
+import Projects from "./sections/Projects"
+
 function App() {
 
   return (
-    <div className = "min-h-screen flex items-center justify-center">
-      <h1 className = "text-4xl font-semibold text-accent">
-        Tailwind is active
-      </h1>
-    </div>
+    <main>
+      <Hero/>
+      <Projects/>
+      <About/>
+      <Experience/>
+      <Contact/>
+    </main>
   )
 }
 
