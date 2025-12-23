@@ -4,12 +4,13 @@ import About from "./sections/About"
 import Contact from "./sections/Contact"
 import Experience from "./sections/Experience"
 import Projects from "./sections/Projects"
+import Footer from "./components/Footer"
 
 function App() {
 
   return (
     <>
-    <Navbar />
+    <Navbar/>
     <main>
       <Hero/>
       <Projects/>
@@ -17,6 +18,7 @@ function App() {
       <Experience/>
       <Contact/>
     </main>
+    <Footer/>
     </>
   )
 }
