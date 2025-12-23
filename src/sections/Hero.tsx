@@ -64,7 +64,7 @@ export default function Hero(){
                     </p>
 
                     <div className = "flex items-center justify-center gap-4">
-                        <motion.a
+                        {/* <motion.a
                             href="#projects"
                             whileHover={{y: -4}}
                             transition={{type: "spring", stiffness: 250, damping: 20}}
@@ -77,7 +77,7 @@ export default function Hero(){
                             "
                         >
                             View Projects
-                        </motion.a>
+                        </motion.a> */}
 
                         <motion.a
                             href="#contact"
