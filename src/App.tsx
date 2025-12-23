@@ -13,8 +13,8 @@ function App() {
     <Navbar/>
     <main>
       <Hero/>
-      <Projects/>
       <About/>
+      <Projects/>
       <Experience/>
       <Contact/>
     </main>
