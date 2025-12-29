@@ -1,3 +1,5 @@
+import {motion} from "framer-motion"
+
 import { projects } from "../data/projects"
 
 export default function Projects() {
@@ -13,7 +15,12 @@ export default function Projects() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {projects.map((project) => (
-            <div
+            <motion.div
+            initial = {{opacity:0, y:24}}
+            whileInView = {{opacity: 1, y: 0}}
+            transition = {{duration: 0.7, ease: "easeInOut", type: "spring", stiffness: 200, damping: 20}}
+            whileHover = {{y: -4}}
+            viewport = {{once: false}}
                 key={project.id}
                 className="
                     group
@@ -88,7 +95,7 @@ export default function Projects() {
                         <span className = "transition-transform group-hover:translate-x-1">→</span>
                     </div>
                 </div>
-                </div>
+                </motion.div>
           ))}
         </div>
       </div>

@@ -71,7 +71,7 @@ export default function Contact(){
                                 target = "_blank"
                                 rel = "noopener noreferrer"
                                 whileHover={{y: -4}}
-                                transition={{type: "spring", stiffness: 250, damping: 20}}
+                                transition={{type: "spring", stiffness: 200, damping: 20}}
                                 className="
                                     block
                                     w-fit
@@ -109,7 +109,7 @@ export default function Contact(){
                                     target = "_blank"
                                     rel = "noopener noreferrer"
                                     whileHover={{y: -4}}
-                                    transition={{type: "spring", stiffness: 250, damping: 20}}
+                                    transition={{type: "spring", stiffness: 200, damping: 10}}
                                     className="
                                         flex items-center
                                         justify-between
@@ -132,7 +132,7 @@ export default function Contact(){
                                     target = "_blank"
                                     rel = "noopener noreferrer"
                                     whileHover={{y: -4}}
-                                    transition={{type: "spring", stiffness: 250, damping: 20}}
+                                    transition={{type: "spring", stiffness: 200, damping: 10}}
                                     className="
                                         flex items-center
                                         justify-between
@@ -155,7 +155,7 @@ export default function Contact(){
                                     target = "_blank"
                                     rel = "noopener noreferrer"
                                     whileHover={{y: -4}}
-                                    transition={{type: "spring", stiffness: 250, damping: 20}}
+                                    transition={{type: "spring", stiffness: 200, damping: 10}}
                                     className="
                                         flex items-center
                                         justify-between
