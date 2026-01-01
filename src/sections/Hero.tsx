@@ -3,9 +3,21 @@ import {motion} from "framer-motion"
 export default function Hero(){
     return(
         <section
-            id = "hero"
-            className = "min-h-screen flex items-center justify-center px-6"
+            id="hero"
+            className="relative min-h-screen flex items-center justify-center px-6 overflow-hidden"
         >
+            {/* Hero white ambient lights */}
+            <div className="absolute inset-0 -z-10 pointer-events-none">
+              <div
+                className="
+                  absolute top-[15%] left-[20%]
+                  w-[400px] h-[200px]
+                  bg-white/45
+                  rounded-full
+                  blur-[140px]
+                "
+              />
+            </div>
             <motion.div 
                 className = "max-w-3xl text-center"
                 initial = {{opacity: 0, y: 24}}
