@@ -36,7 +36,7 @@ export default function Projects() {
                 "
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
+                transition={{ duration: 0.9, ease: "easeOut" }}
                 whileHover={{ y: -6 }}
               >
                 {/* IMAGE */}
