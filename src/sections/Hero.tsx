@@ -6,7 +6,6 @@ export default function Hero(){
             id="hero"
             className="relative min-h-screen flex items-center justify-center px-6 overflow-hidden"
         >
-            {/* Hero white ambient lights */}
             <div className="absolute inset-0 -z-10 pointer-events-none">
               <div
                 className="
