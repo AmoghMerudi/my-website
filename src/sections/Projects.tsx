@@ -16,9 +16,15 @@ export default function Projects() {
         className="min-h-screen px-6 py-24 flex items-center justify-center"
       >
         <div className="w-full max-w-6xl">
-          <h2 className="text-4xl font-semibold mb-12">
-            Projects
-          </h2>
+			<motion.h2 
+				className = "text-5xl md:text-6xl text-indigo-500 text-left font-bold tracking-tighter mb-12"
+				initial = {{opacity: 0, y:16 }}
+				whileInView = {{opacity: 1, y: 0}}
+				viewport = {{once: false}}
+				transition = {{duration: 0.5, ease: "easeOut"}}
+			>
+				Projects
+			</motion.h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
             {projects.map((project) => (
