@@ -16,6 +16,7 @@ export default function Technologies() {
     "FastAPI",
     // Databases
     "MongoDB",
+    "SQL",
     // Tooling
     "Git",
     "GitHub",
