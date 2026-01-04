@@ -53,15 +53,22 @@ export default function Technologies() {
             <div
               key={label}
               className="
-                h-14
-                w-[190px]
+                h-14 w-[190px]
                 flex items-center justify-center
                 rounded-2xl
                 bg-white/5
                 border border-white/10
                 text-white/80
-                text-lg font-medium
-                tracking-wide
+                text-lg font-medium tracking-wide
+
+                transition-all duration-200 ease-out
+                hover:-translate-y-1
+                hover:scale-[1.03]
+                hover:bg-white/10
+                hover:border-purple-900/40
+                hover:shadow-[0_12px_40px_rgba(168,85,247,0.25)]
+
+                active:scale-[0.98]
               "
             >
               {label}
