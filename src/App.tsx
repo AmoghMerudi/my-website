@@ -5,6 +5,7 @@ import Contact from "./sections/Contact"
 import Experience from "./sections/Experience"
 import Projects from "./sections/Projects"
 import Footer from "./components/Footer"
+import ScrollToTop from "./components/ScrollToTop"
 
 function App() {
 
@@ -51,6 +52,7 @@ function App() {
         <Contact />
       </main>
       <Footer />
+      <ScrollToTop />
     </div>
   )
 }

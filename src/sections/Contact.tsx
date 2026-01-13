@@ -1,4 +1,5 @@
 import {motion} from "framer-motion"
+import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa"
 
 export default function Contact(){
     return(
@@ -78,7 +79,7 @@ export default function Contact(){
                                     px-5 py-3
                                     rounded-full
                                     border border-white/20
-                                    text-wite/80
+                                    text-white/80
                                     hover:text-white
                                     hover:border-white/40
                                     transition
@@ -121,7 +122,10 @@ export default function Contact(){
                                         transition
                                     "
                                 >
-                                    <span>GitHub</span>
+                                    <div className="flex items-center gap-3">
+                                        <FaGithub className="text-xl" />
+                                        <span>GitHub</span>
+                                    </div>
                                     <span className = "text-white/40">→</span>
                                 </motion.a>
                             </li>
@@ -144,7 +148,10 @@ export default function Contact(){
                                         transition
                                     "
                                 >
-                                    <span>LinkedIn</span>
+                                    <div className="flex items-center gap-3">
+                                        <FaLinkedin className="text-xl" />
+                                        <span>LinkedIn</span>
+                                    </div>
                                     <span className = "text-white/40">→</span>
                                 </motion.a>
                             </li>
@@ -167,7 +174,10 @@ export default function Contact(){
                                         transition
                                     "
                                 >
-                                    <span>Instagram</span>
+                                    <div className="flex items-center gap-3">
+                                        <FaInstagram className="text-xl" />
+                                        <span>Instagram</span>
+                                    </div>
                                     <span className = "text-white/40">→</span>
                                 </motion.a>
                             </li>

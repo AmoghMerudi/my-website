@@ -54,13 +54,13 @@ export default function About() {
             </h2>
 
             <p className="text-white/70 text-xl leading-relaxed mb-4 max-w-2xl">
-              Hey, I’m Amogh. This is my little corner of the internet where I build things, break them, and try to make them better. 
-              I enjoy coding, but I’m just as interested in design, creativity, and how people interact with the stuff they use.
+              Hey, I'm Amogh. This is my little corner of the internet where I build things, break them, and try to make them better. 
+              I enjoy coding, but I'm just as interested in design, creativity, and how people interact with the stuff they use.
               <br/>
               <br/>
-              When I’m not working on projects, I’m probably following Formula 1, taking photos, or listening to music. 
-              I like the mix of engineering, strategy, and creativity, whether that’s in software or on a race weekend. 
-              I’m always learning, always experimenting, and seeing where curiosity takes me next.
+              When I'm not working on projects, I'm probably following Formula 1, taking photos, or listening to music. 
+              I like the mix of engineering, strategy, and creativity, whether that's in software or on a race weekend. 
+              I'm always learning, always experimenting, and seeing where curiosity takes me next.
             </p>
 
             <p className="text-white/50 text-lg mt-2">
