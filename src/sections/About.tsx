@@ -53,7 +53,7 @@ export default function About() {
               Amogh Merudi
             </h2>
 
-            <p className="text-white/70 text-xl leading-relaxed mb-4 max-w-2xl">
+            <p className="text-slate-600 dark:text-white/70 text-xl leading-relaxed mb-4 max-w-2xl">
               Hey, I'm Amogh. This is my little corner of the internet where I build things, break them, and try to make them better. 
               I enjoy coding, but I'm just as interested in design, creativity, and how people interact with the stuff they use.
               <br/>
@@ -63,7 +63,7 @@ export default function About() {
               I'm always learning, always experimenting, and seeing where curiosity takes me next.
             </p>
 
-            <p className="text-white/50 text-lg mt-2">
+            <p className="text-slate-500 dark:text-white/50 text-lg mt-2">
               Currently studying Computer Science at the University of Toronto.
             </p>
           </div>

@@ -17,7 +17,7 @@ export default function Projects() {
       >
         <div className="w-full max-w-6xl">
 			<motion.h2 
-				className = "text-5xl md:text-6xl text-indigo-500 text-left font-bold tracking-tighter mb-12"
+				className = "text-5xl md:text-6xl text-indigo-600 dark:text-indigo-500 text-left font-bold tracking-tighter mb-12"
 				initial = {{opacity: 0, y:16 }}
 				whileInView = {{opacity: 1, y: 0}}
 				viewport = {{once: false}}
@@ -36,8 +36,8 @@ export default function Projects() {
                   relative
                   rounded-2xl
                   overflow-hidden
-                  border border-white/10
-                  bg-white/5
+                  border border-black/10 dark:border-white/10
+                  bg-white/70 dark:bg-white/5
                   cursor-pointer
                 "
                 initial={{ opacity: 0, y: 24 }}
@@ -57,16 +57,16 @@ export default function Projects() {
                     "
                   />
 
-                  <div className="absolute inset-0 bg-black/20" />
+                  <div className="absolute inset-0 bg-black/10 dark:bg-black/20" />
 
                   {project.backendFocused && (
                     <div className="
                       absolute top-4 left-4
                       text-xs px-3 py-1
                       rounded-full
-                      bg-black/60
-                      border border-white/20
-                      text-white/80
+                      bg-white/80 dark:bg-black/60
+                      border border-black/10 dark:border-white/20
+                      text-slate-700 dark:text-white/80
                       backdrop-blur
                     ">
                       Backend-focused
@@ -80,11 +80,11 @@ export default function Projects() {
                     {project.title}
                   </h3>
 
-                  <p className="text-sm text-white/60 mb-4">
+                  <p className="text-sm text-slate-600 dark:text-white/60 mb-4">
                     {project.subtitle}
                   </p>
 
-                  <p className="text-white/60 mb-6">
+                  <p className="text-slate-600 dark:text-white/60 mb-6">
                     {project.description}
                   </p>
 
@@ -96,8 +96,8 @@ export default function Projects() {
                           text-xs
                           px-3 py-1
                           rounded-full
-                          border border-white/10
-                          text-white/70
+                          border border-black/10 dark:border-white/10
+                          text-slate-700 dark:text-white/70
                         "
                       >
                         {t}
@@ -105,7 +105,7 @@ export default function Projects() {
                     ))}
                   </div>
 
-                  <div className="text-sm text-white/50 flex items-center gap-2">
+                  <div className="text-sm text-slate-500 dark:text-white/50 flex items-center gap-2">
                     <span>View project</span>
                     <span className="transition-transform group-hover:translate-x-1">
                       →

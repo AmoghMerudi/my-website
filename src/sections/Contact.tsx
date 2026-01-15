@@ -9,7 +9,7 @@ export default function Contact(){
         >
             <div className = "w-full max-w-5xl">
                 <motion.h2 
-                    className = "text-5xl md:text-6xl text-indigo-500 text-center font-bold tracking-tighter mb-12"
+                    className = "text-5xl md:text-6xl text-indigo-600 dark:text-indigo-500 text-center font-bold tracking-tighter mb-12"
                     initial = {{opacity: 0, y:16 }}
                     whileInView = {{opacity: 1, y: 0}}
                     viewport = {{once: false}}
@@ -32,7 +32,7 @@ export default function Contact(){
                 >
                     {/**Contact Card*/}
                     <motion.div 
-                        className = "rounded-2xl border border-white/10 bg-white/5 p-8"
+                        className = "rounded-2xl border border-black/10 dark:border-white/10 bg-white/80 dark:bg-white/5 p-8"
                         variants={{
                             hidden: {opacity: 0, y: 20},
                             visible: {opacity: 1, y: 0},
@@ -43,7 +43,7 @@ export default function Contact(){
                             Let's Build something. 
                         </h3>
 
-                        <p className = "text-white/85 mb-8">
+                        <p className = "text-slate-700 dark:text-white/85 mb-8">
                             Whether it's a project, collaboration or opportunity - my inbox is always open. 
                             Let's talk about how we can achieve your goals, or connect for a quick chat
                         </p>
@@ -58,10 +58,11 @@ export default function Contact(){
                                 w-fit
                                 px-5 py-3
                                 rounded-full
-                                bg-white text-black
+                                bg-slate-900 text-white
                                 font-medium
-                                hover:bg-white/90
+                                hover:bg-slate-800
                                 transition
+                                dark:bg-white dark:text-black dark:hover:bg-white/90
                                 "
                             >
                                 Email me
@@ -78,10 +79,10 @@ export default function Contact(){
                                     w-fit
                                     px-5 py-3
                                     rounded-full
-                                    border border-white/20
-                                    text-white/80
-                                    hover:text-white
-                                    hover:border-white/40
+                                    border border-black/20 dark:border-white/20
+                                    text-slate-700 dark:text-white/80
+                                    hover:text-slate-900 dark:hover:text-white
+                                    hover:border-black/40 dark:hover:border-white/40
                                     transition
                                 "
                             >
@@ -92,7 +93,7 @@ export default function Contact(){
 
                     {/**Social*/}
                     <motion.div 
-                        className = "rounded-2xl border border-white/10 bg-white/5 p-8"
+                        className = "rounded-2xl border border-black/10 dark:border-white/10 bg-white/80 dark:bg-white/5 p-8"
                         variants={{
                             hidden: {opacity: 0, y: 20},
                             visible: {opacity: 1, y: 0},
@@ -116,9 +117,9 @@ export default function Contact(){
                                         justify-between
                                         px-4 py-3
                                         rounded-xl
-                                        border border-white/10
-                                        hover:border-white/30
-                                        hover:bg-white/5
+                                        border border-black/10 dark:border-white/10
+                                        hover:border-black/30 dark:hover:border-white/30
+                                        hover:bg-black/5 dark:hover:bg-white/5
                                         transition
                                     "
                                 >
@@ -126,7 +127,7 @@ export default function Contact(){
                                         <FaGithub className="text-xl" />
                                         <span>GitHub</span>
                                     </div>
-                                    <span className = "text-white/40">→</span>
+                                    <span className = "text-slate-500 dark:text-white/40">→</span>
                                 </motion.a>
                             </li>
 
@@ -142,9 +143,9 @@ export default function Contact(){
                                         justify-between
                                         px-4 py-3
                                         rounded-xl
-                                        border border-white/10
-                                        hover:border-white/30
-                                        hover:bg-white/5
+                                        border border-black/10 dark:border-white/10
+                                        hover:border-black/30 dark:hover:border-white/30
+                                        hover:bg-black/5 dark:hover:bg-white/5
                                         transition
                                     "
                                 >
@@ -152,7 +153,7 @@ export default function Contact(){
                                         <FaLinkedin className="text-xl" />
                                         <span>LinkedIn</span>
                                     </div>
-                                    <span className = "text-white/40">→</span>
+                                    <span className = "text-slate-500 dark:text-white/40">→</span>
                                 </motion.a>
                             </li>
 
@@ -168,9 +169,9 @@ export default function Contact(){
                                         justify-between
                                         px-4 py-3
                                         rounded-xl
-                                        border border-white/10
-                                        hover:border-white/30
-                                        hover:bg-white/5
+                                        border border-black/10 dark:border-white/10
+                                        hover:border-black/30 dark:hover:border-white/30
+                                        hover:bg-black/5 dark:hover:bg-white/5
                                         transition
                                     "
                                 >
@@ -178,7 +179,7 @@ export default function Contact(){
                                         <FaInstagram className="text-xl" />
                                         <span>Instagram</span>
                                     </div>
-                                    <span className = "text-white/40">→</span>
+                                    <span className = "text-slate-500 dark:text-white/40">→</span>
                                 </motion.a>
                             </li>
                         </ul>

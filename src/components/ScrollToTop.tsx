@@ -36,11 +36,11 @@ export default function ScrollToTop() {
           className="
             fixed bottom-8 right-8 z-50
             p-4 rounded-full
-            bg-[#111e39]/80 backdrop-blur-sm
-            text-white
-            border border-white/10
+            bg-white/70 dark:bg-[#111e39]/80 backdrop-blur-sm
+            text-slate-800 dark:text-white
+            border border-black/10 dark:border-white/10
             shadow-lg
-            hover:bg-[#111e39]/90
+            hover:bg-white/90 dark:hover:bg-[#111e39]/90
             transition-all duration-200
             flex items-center justify-center
           "

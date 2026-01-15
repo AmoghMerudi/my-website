@@ -19,7 +19,7 @@ export default function Experience() {
     >
       <div className="w-full max-w-6xl relative">
         <motion.h2 
-            className = "text-5xl md:text-6xl text-indigo-500 text-left font-bold tracking-tighter mb-12"
+            className = "text-5xl md:text-6xl text-indigo-600 dark:text-indigo-500 text-left font-bold tracking-tighter mb-12"
             initial = {{opacity: 0, y:16 }}
             whileInView = {{opacity: 1, y: 0}}
             viewport = {{once: false}}
@@ -38,7 +38,7 @@ export default function Experience() {
               className="
                 absolute top-0
                 w-[6px]
-                bg-purple-500/30
+                bg-purple-400/30 dark:bg-purple-500/30
                 blur-md
                 origin-top
                 z-0
@@ -51,10 +51,11 @@ export default function Experience() {
                 absolute top-0
                 w-[3px]
                 bg-gradient-to-b
-                from-indigo-900
-                to-purple-500
+                from-indigo-300
+                to-purple-400
                 origin-top
                 z-10
+                dark:from-indigo-900 dark:to-purple-500
               "
             />
           </div>
@@ -73,7 +74,7 @@ export default function Experience() {
                       h-5 w-5
                       flex items-center justify-center
                       rounded-full
-                      bg-indigo-400
+                      bg-indigo-500 dark:bg-indigo-400
                       shadow-[0_0_18px_rgba(168,85,247,0.7)]
                     "
                   >
@@ -92,15 +93,15 @@ export default function Experience() {
                 </div>
 
                 <div className="py-14">
-                  <p className="text-lg font-medium text-white mb-1">
+                  <p className="text-lg font-medium text-slate-900 dark:text-white mb-1">
                     {exp.org}
                   </p>
 
-                  <p className="text-sm text-white/50 mb-4">
+                  <p className="text-sm text-slate-500 dark:text-white/50 mb-4">
                     {exp.timeframe}
                   </p>
 
-                  <ul className="text-white/60 space-y-2">
+                  <ul className="text-slate-600 dark:text-white/60 space-y-2">
                     {exp.highlights.map((h) => (
                       <li key={h}>• {h}</li>
                     ))}

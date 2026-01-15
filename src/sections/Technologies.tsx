@@ -29,13 +29,13 @@ export default function Technologies() {
         className="
           w-full max-w-4xl
           rounded-3xl
-          bg-white/5
-          border border-white/10
+          bg-white/80 dark:bg-white/5
+          border border-black/10 dark:border-white/10
           backdrop-blur-lg
           p-8 md:p-10
         "
       >
-        <h3 className="text-3xl md:text-4xl font-semibold text-white text-center mb-12">
+        <h3 className="text-3xl md:text-4xl font-semibold text-slate-900 dark:text-white text-center mb-12">
           My Technologies
         </h3>
 
@@ -56,17 +56,18 @@ export default function Technologies() {
                 h-14 w-[190px]
                 flex items-center justify-center
                 rounded-2xl
-                bg-white/5
-                border border-white/10
-                text-white/80
+                bg-white/70 dark:bg-white/5
+                border border-black/10 dark:border-white/10
+                text-slate-700 dark:text-white/80
                 text-lg font-medium tracking-wide
 
                 transition-all duration-200 ease-out
                 hover:-translate-y-1
                 hover:scale-[1.03]
-                hover:bg-white/10
-                hover:border-purple-900/40
-                hover:shadow-[0_12px_40px_rgba(168,85,247,0.25)]
+                hover:bg-black/5 dark:hover:bg-white/10
+                hover:border-purple-400/40 dark:hover:border-purple-900/40
+                hover:shadow-[0_12px_40px_rgba(168,85,247,0.18)]
+                dark:hover:shadow-[0_12px_40px_rgba(168,85,247,0.25)]
 
                 active:scale-[0.98]
               "
@@ -76,7 +77,7 @@ export default function Technologies() {
           ))}
         </div>
 
-        <p className="mt-12 text-center text-sm text-white/40">
+        <p className="mt-12 text-center text-sm text-slate-500 dark:text-white/40">
           + much more…
         </p>
       </div>

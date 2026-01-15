@@ -24,7 +24,7 @@ export default function Hero(){
                 transition = {{duration: 0.9, ease: "easeOut"}}
             >
                 <motion.p 
-                    className = "text-md text-white mb-4"
+                    className = "text-md text-slate-700 dark:text-white mb-4"
                     initial = {{opacity: 0, y:10}}
                     animate = {{opacity: 1, y:10}}
                     transition={{delay: 0.2}}
@@ -33,7 +33,7 @@ export default function Hero(){
                 </motion.p>
 
                 <motion.h1
-                    className="text-6xl md:text-8xl font-bold tracking-tight"
+                    className="text-6xl md:text-8xl font-bold tracking-tight text-slate-900 dark:text-white"
                     initial={{ opacity: 0, y: 14 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.35 }}
@@ -44,7 +44,7 @@ export default function Hero(){
                         text-6xl md:text-8xl
                         font-bold
                         tracking-wide
-                        text-blue-400
+                        text-blue-500 dark:text-blue-400
                         skew-x-[-5deg]
                         inline-block
                         "
@@ -70,7 +70,7 @@ export default function Hero(){
                     animate = {{opacity: 1, y: 0}}
                     transition = {{delay: 0.6}}
                 >
-                    <p className = "text-lg text-white/60 max-w-2xl mx-auto mb-10">
+                    <p className = "text-lg text-slate-600 dark:text-white/60 max-w-2xl mx-auto mb-10">
                     I'm a developer in Canada focused on building AI-powered products, games, clean interfaces, and systems that actually ship.
                     </p>
 
@@ -97,11 +97,12 @@ export default function Hero(){
                             className="
                             px-6 py-3 
                             rounded-full
-                            bg-white text-black
+                            bg-slate-900 text-white
                             text-sm 
                             font-medium
-                            hover:bg-white/90
+                            hover:bg-slate-800
                             transition
+                            dark:bg-white dark:text-black dark:hover:bg-white/90
                             "
                         >
                             Get in Touch!

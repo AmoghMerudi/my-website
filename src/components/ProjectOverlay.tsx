@@ -20,7 +20,7 @@ export default function ProjectOverlay({ project, onClose }: Props) {
     <motion.div
       className="
         fixed inset-0 z-[100]
-        bg-black/70 backdrop-blur
+        bg-black/30 dark:bg-black/70 backdrop-blur
         flex items-center justify-center
         px-6
       "
@@ -38,8 +38,8 @@ export default function ProjectOverlay({ project, onClose }: Props) {
           overflow-y-auto
           no-scrollbar
           rounded-3xl
-          bg-[#0b0b0e]
-          border border-white/10
+          bg-white/90 dark:bg-[#0b0b0e]
+          border border-black/10 dark:border-white/10
           p-10
         "
         initial={{ y: 40, opacity: 0 }}
@@ -51,7 +51,8 @@ export default function ProjectOverlay({ project, onClose }: Props) {
           onClick={onClose}
           className="
             absolute top-6 right-6
-            text-white/60 hover:text-white
+            text-slate-500 dark:text-white/60
+            hover:text-slate-900 dark:hover:text-white
             transition
           "
         >
@@ -63,13 +64,13 @@ export default function ProjectOverlay({ project, onClose }: Props) {
           <h2 className="text-4xl font-semibold mb-2">
             {project.title}
           </h2>
-          <p className="text-white/60">
+          <p className="text-slate-600 dark:text-white/60">
             {project.subtitle}
           </p>
         </div>
 
         {/* Hero Image */}
-        <div className="mb-12 rounded-2xl overflow-hidden border border-white/10">
+        <div className="mb-12 rounded-2xl overflow-hidden border border-black/10 dark:border-white/10">
           <img
             src={project.image}
             alt={project.title}
@@ -83,7 +84,7 @@ export default function ProjectOverlay({ project, onClose }: Props) {
             Architecture
           </h3>
 
-          <ul className="list-disc list-inside text-white/60 space-y-2">
+          <ul className="list-disc list-inside text-slate-600 dark:text-white/60 space-y-2">
           {project.architecture.map((item) => (
             <li key={item}>{item}</li>
           ))}
@@ -100,10 +101,10 @@ export default function ProjectOverlay({ project, onClose }: Props) {
             {project.results.map((r) => (
             <li
                 key={r.label}
-                className="rounded-xl border border-white/10 p-4"
+                className="rounded-xl border border-black/10 dark:border-white/10 p-4"
             >
-                <p className="text-sm text-white/50">{r.label}</p>
-                <p className="text-lg font-medium">{r.value}</p>
+                <p className="text-sm text-slate-500 dark:text-white/50">{r.label}</p>
+                <p className="text-lg font-medium text-slate-900 dark:text-white">{r.value}</p>
             </li>
             ))}
         </ul>

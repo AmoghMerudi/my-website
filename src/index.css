@@ -7,8 +7,26 @@ html, body, #root{
 }
 
 body{
+  background-color: #c8dcf1;
+  background-image:
+    radial-gradient(900px 600px at 15% -10%, rgba(59, 130, 246, 0.16), transparent 60%),
+    radial-gradient(700px 500px at 85% 10%, rgba(139, 92, 246, 0.14), transparent 60%),
+    radial-gradient(800px 600px at 50% 120%, rgba(16, 185, 129, 0.10), transparent 55%);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  color: #0f172a;
+  color-scheme: light;
+}
+
+.dark body{
   background-color: #000000;
-  color: white
+  background-image:
+    radial-gradient(900px 600px at 15% -10%, rgba(59, 130, 246, 0.18), transparent 60%),
+    radial-gradient(700px 500px at 85% 10%, rgba(139, 92, 246, 0.16), transparent 60%),
+    radial-gradient(800px 600px at 50% 120%, rgba(16, 185, 129, 0.10), transparent 55%);
+  color: white;
+  color-scheme: dark;
 }
 
 .no-scrollbar {
