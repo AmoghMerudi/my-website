@@ -69,15 +69,16 @@ export default function Navbar(){
   return(
     <nav
         className = {`
-                fixed top-6 left-1/2 -translate-x-1/2 z-50
+                fixed top-4 sm:top-6 left-1/2 -translate-x-1/2 z-50
                 rounded-3xl
+                w-[calc(100%-2rem)] sm:w-auto
                 bg-[color:var(--surface-navbar)]
                 backdrop-blur-sm
                 transition-all duration-300
                 ${scrolled ? "shadow-lg": ""}
             `}
     >
-        <div className = "flex items-center gap-2 px-4 py-3">
+        <div className = "flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-3">
             {/**Logo*/}
             <div className = "font-semibold tracking-light px-2">
                 <a

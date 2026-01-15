@@ -13,11 +13,11 @@ export default function Projects() {
       {/* Projects Section */}
       <section
         id="projects"
-        className="min-h-screen px-6 py-24 flex items-center justify-center"
+        className="min-h-screen px-4 sm:px-6 py-16 md:py-24 flex items-center justify-center"
       >
         <div className="w-full max-w-6xl">
 			<motion.h2 
-				className = "text-5xl md:text-6xl text-indigo-600 dark:text-indigo-500 text-left font-bold tracking-tighter mb-12"
+				className = "text-4xl sm:text-5xl md:text-6xl text-indigo-600 dark:text-indigo-500 text-left font-bold tracking-tighter mb-10 md:mb-12"
 				initial = {{opacity: 0, y:16 }}
 				whileInView = {{opacity: 1, y: 0}}
 				viewport = {{once: false}}
@@ -26,7 +26,7 @@ export default function Projects() {
 				Projects
 			</motion.h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-10">
             {projects.map((project) => (
               <motion.div
                 key={project.id}
@@ -46,7 +46,7 @@ export default function Projects() {
                 whileHover={{ y: -6 }}
               >
                 {/* IMAGE */}
-                <div className="relative h-56 overflow-hidden">
+                <div className="relative h-48 sm:h-56 overflow-hidden">
                   <img
                     src={project.image}
                     alt={project.title}
@@ -75,7 +75,7 @@ export default function Projects() {
                 </div>
 
                 {/* CONTENT */}
-                <div className="p-6">
+                <div className="p-5 sm:p-6">
                   <h3 className="text-2xl font-medium mb-1">
                     {project.title}
                   </h3>

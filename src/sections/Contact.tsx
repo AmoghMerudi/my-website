@@ -5,11 +5,11 @@ export default function Contact(){
     return(
         <section
             id = "contact"
-            className = "min-h-screen px-6 flex items-center justify-center"
+            className = "min-h-screen px-4 sm:px-6 py-16 md:py-24 flex items-center justify-center"
         >
             <div className = "w-full max-w-5xl">
                 <motion.h2 
-                    className = "text-5xl md:text-6xl text-indigo-600 dark:text-indigo-500 text-center font-bold tracking-tighter mb-12"
+                    className = "text-4xl sm:text-5xl md:text-6xl text-indigo-600 dark:text-indigo-500 text-center font-bold tracking-tighter mb-10 md:mb-12"
                     initial = {{opacity: 0, y:16 }}
                     whileInView = {{opacity: 1, y: 0}}
                     viewport = {{once: false}}
@@ -19,7 +19,7 @@ export default function Contact(){
                 </motion.h2>
 
                 <motion.div 
-                    className = "grid grid-cols-1 md:grid-cols-2 gap-8"
+                    className = "grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8"
                     initial = "hidden"
                     whileInView="visible"
                     viewport = {{once: false}}
@@ -32,18 +32,18 @@ export default function Contact(){
                 >
                     {/**Contact Card*/}
                     <motion.div 
-                        className = "rounded-2xl border border-black/10 dark:border-white/10 bg-[color:var(--surface)] p-8"
+                        className = "rounded-2xl border border-black/10 dark:border-white/10 bg-[color:var(--surface)] p-6 sm:p-8"
                         variants={{
                             hidden: {opacity: 0, y: 20},
                             visible: {opacity: 1, y: 0},
                         }}
                         transition = {{duration: 0.55, ease: "easeOut"}}
                     >
-                        <h3 className = "text-2xl font-medium mb-4">
+                        <h3 className = "text-xl sm:text-2xl font-medium mb-4">
                             Let's Build something. 
                         </h3>
 
-                        <p className = "text-slate-700 dark:text-white/85 mb-8">
+                        <p className = "text-slate-700 dark:text-white/85 mb-6 sm:mb-8 text-sm sm:text-base">
                             Whether it's a project, collaboration or opportunity - my inbox is always open. 
                             Let's talk about how we can achieve your goals, or connect for a quick chat
                         </p>
@@ -55,7 +55,7 @@ export default function Contact(){
                                 transition={{type: "spring", stiffness: 250, damping: 20}}
                                 className="
                                 block
-                                w-fit
+                                w-full sm:w-fit
                                 px-5 py-3
                                 rounded-full
                                 bg-slate-900 text-white
@@ -76,7 +76,7 @@ export default function Contact(){
                                 transition={{type: "spring", stiffness: 200, damping: 20}}
                                 className="
                                     block
-                                    w-fit
+                                    w-full sm:w-fit
                                     px-5 py-3
                                     rounded-full
                                     border border-black/20 dark:border-white/20
@@ -93,14 +93,14 @@ export default function Contact(){
 
                     {/**Social*/}
                     <motion.div 
-                        className = "rounded-2xl border border-black/10 dark:border-white/10 bg-[color:var(--surface)] p-8"
+                        className = "rounded-2xl border border-black/10 dark:border-white/10 bg-[color:var(--surface)] p-6 sm:p-8"
                         variants={{
                             hidden: {opacity: 0, y: 20},
                             visible: {opacity: 1, y: 0},
                         }}
                         transition = {{duration: 0.55, ease: "easeOut"}}                        
                     >
-                        <h3 className = "text-2xl font-medium mb-6">
+                        <h3 className = "text-xl sm:text-2xl font-medium mb-6">
                             Find me online
                         </h3>
 
@@ -115,7 +115,7 @@ export default function Contact(){
                                     className="
                                         flex items-center
                                         justify-between
-                                        px-4 py-3
+                                        px-3 sm:px-4 py-2.5 sm:py-3
                                         rounded-xl
                                         border border-black/10 dark:border-white/10
                                         hover:border-black/30 dark:hover:border-white/30
@@ -141,7 +141,7 @@ export default function Contact(){
                                     className="
                                         flex items-center
                                         justify-between
-                                        px-4 py-3
+                                        px-3 sm:px-4 py-2.5 sm:py-3
                                         rounded-xl
                                         border border-black/10 dark:border-white/10
                                         hover:border-black/30 dark:hover:border-white/30
@@ -167,7 +167,7 @@ export default function Contact(){
                                     className="
                                         flex items-center
                                         justify-between
-                                        px-4 py-3
+                                        px-3 sm:px-4 py-2.5 sm:py-3
                                         rounded-xl
                                         border border-black/10 dark:border-white/10
                                         hover:border-black/30 dark:hover:border-white/30

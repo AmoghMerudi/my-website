@@ -24,7 +24,7 @@ export default function Technologies() {
   ]
 
   return (
-    <section className="mt-32 flex justify-center px-6">
+    <section className="mt-20 sm:mt-32 flex justify-center px-4 sm:px-6">
       <div
         className="
           w-full max-w-4xl
@@ -32,17 +32,18 @@ export default function Technologies() {
           bg-[color:var(--surface)]
           border border-black/10 dark:border-white/10
           backdrop-blur-lg
-          p-8 md:p-10
+          p-6 sm:p-8 md:p-10
         "
       >
-        <h3 className="text-3xl md:text-4xl font-semibold text-slate-900 dark:text-white text-center mb-12">
+        <h3 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-slate-900 dark:text-white text-center mb-8 sm:mb-12">
           My Technologies
         </h3>
 
         <div
           className="
             grid
-            grid-cols-[repeat(auto-fit,190px)]
+            grid-cols-[repeat(auto-fit,minmax(140px,1fr))]
+            sm:grid-cols-[repeat(auto-fit,190px)]
             justify-center
             gap-x-3 gap-y-3
             mx-auto
@@ -53,13 +54,13 @@ export default function Technologies() {
             <div
               key={label}
               className="
-                h-14 w-[190px]
+                h-12 sm:h-14 w-full sm:w-[190px]
                 flex items-center justify-center
                 rounded-2xl
                 bg-[color:var(--surface)]
                 border border-black/10 dark:border-white/10
                 text-slate-700 dark:text-white/80
-                text-lg font-medium tracking-wide
+                text-base sm:text-lg font-medium tracking-wide
 
                 transition-all duration-200 ease-out
                 hover:-translate-y-1

@@ -15,11 +15,11 @@ export default function Experience() {
   return (
     <section
       id="experience"
-      className="min-h-screen px-6 py-24 flex justify-center"
+      className="min-h-screen px-4 sm:px-6 py-16 md:py-24 flex justify-center"
     >
       <div className="w-full max-w-6xl relative">
         <motion.h2 
-            className = "text-5xl md:text-6xl text-indigo-600 dark:text-indigo-500 text-left font-bold tracking-tighter mb-12"
+            className = "text-4xl sm:text-5xl md:text-6xl text-indigo-600 dark:text-indigo-500 text-left font-bold tracking-tighter mb-10 md:mb-12"
             initial = {{opacity: 0, y:16 }}
             whileInView = {{opacity: 1, y: 0}}
             viewport = {{once: false}}
@@ -30,9 +30,9 @@ export default function Experience() {
 
        <div
           ref={containerRef}
-          className="relative flex flex-col gap-y-16"
+          className="relative flex flex-col gap-y-10 md:gap-y-16"
        >
-          <div className="absolute left-[20px] top-0 bottom-0 flex justify-center">
+          <div className="absolute left-[20px] top-0 bottom-0 hidden md:flex justify-center">
             <motion.div
               style={{ height: lineHeight }}
               className="
@@ -65,9 +65,9 @@ export default function Experience() {
             return (
               <div
                 key={exp.id}
-                className="grid grid-cols-[40px_minmax(220px,280px)_1fr] gap-x-10"
+                className="grid grid-cols-1 md:grid-cols-[40px_minmax(220px,280px)_1fr] gap-y-4 md:gap-x-10"
               >
-                <div className="relative py-14 z-20">
+                <div className="relative py-6 md:py-14 z-20 hidden md:block">
                   <div
                     className="
                       absolute left-1/2 -translate-x-1/2
@@ -82,18 +82,18 @@ export default function Experience() {
                   </div>
                 </div>
 
-                <div className="py-14">
+                <div className="py-2 md:py-14">
                   <h3
                     className={`
-                      text-2xl font-semibold leading-tight
+                      text-xl sm:text-2xl font-semibold leading-tight
                     `}
                   >
                     {exp.role}
                   </h3>
                 </div>
 
-                <div className="py-14">
-                  <p className="text-lg font-medium text-slate-900 dark:text-white mb-1">
+                <div className="py-2 md:py-14">
+                  <p className="text-base sm:text-lg font-medium text-slate-900 dark:text-white mb-1">
                     {exp.org}
                   </p>
 

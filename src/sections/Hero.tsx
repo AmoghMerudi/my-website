@@ -4,7 +4,7 @@ export default function Hero(){
     return(
         <section
             id="hero"
-            className="relative min-h-screen flex items-center justify-center px-6 overflow-hidden"
+            className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 overflow-hidden"
         >
             <div className="absolute inset-0 -z-10 pointer-events-none">
               <div
@@ -24,7 +24,7 @@ export default function Hero(){
                 transition = {{duration: 0.9, ease: "easeOut"}}
             >
                 <motion.p 
-                    className = "text-md text-slate-700 dark:text-white mb-4"
+                    className = "text-sm sm:text-md text-slate-700 dark:text-white mb-4"
                     initial = {{opacity: 0, y:10}}
                     animate = {{opacity: 1, y:10}}
                     transition={{delay: 0.2}}
@@ -33,7 +33,7 @@ export default function Hero(){
                 </motion.p>
 
                 <motion.h1
-                    className="text-6xl md:text-8xl font-bold tracking-tight text-slate-900 dark:text-white"
+                    className="text-4xl sm:text-6xl md:text-8xl font-bold tracking-tight text-slate-900 dark:text-white"
                     initial={{ opacity: 0, y: 14 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.35 }}
@@ -41,7 +41,7 @@ export default function Hero(){
                     Hey, I'm{" "}
                     <motion.span
                         className="
-                        text-6xl md:text-8xl
+                        text-4xl sm:text-6xl md:text-8xl
                         font-bold
                         tracking-wide
                         text-blue-500 dark:text-blue-400
@@ -70,11 +70,11 @@ export default function Hero(){
                     animate = {{opacity: 1, y: 0}}
                     transition = {{delay: 0.6}}
                 >
-                    <p className = "text-lg text-slate-600 dark:text-white/60 max-w-2xl mx-auto mb-10">
+                    <p className = "text-base sm:text-lg text-slate-600 dark:text-white/60 max-w-2xl mx-auto mb-8 sm:mb-10">
                     I'm a developer in Canada focused on building AI-powered products, games, clean interfaces, and systems that actually ship.
                     </p>
 
-                    <div className = "flex items-center justify-center gap-4">
+                    <div className = "flex items-center justify-center gap-4 flex-wrap">
                         {/* <motion.a
                             href="#projects"
                             whileHover={{y: -4}}
