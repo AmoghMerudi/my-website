@@ -71,7 +71,7 @@ export default function Navbar(){
         className = {`
                 fixed top-6 left-1/2 -translate-x-1/2 z-50
                 rounded-3xl
-                bg-white/70 dark:bg-[#111e39]/80
+                bg-[color:var(--surface-navbar)]
                 backdrop-blur-sm
                 transition-all duration-300
                 ${scrolled ? "shadow-lg": ""}
@@ -115,7 +115,7 @@ export default function Navbar(){
                                     text-[15px] font-medium
                                     text-slate-700 dark:text-white/80
                                     border border-black/10 dark:border-white/10
-                                    bg-white/70 dark:bg-black/30
+                                    bg-[color:var(--surface)]
                                     hover:bg-black/5 dark:hover:bg-white/10
                                     hover:border-black/20 dark:hover:border-white/20
                                     hover:text-slate-900 dark:hover:text-white
@@ -135,7 +135,7 @@ export default function Navbar(){
                 p-2.5 rounded-full
                 text-slate-700 dark:text-white/80
                 border border-black/10 dark:border-white/10
-                bg-white/70 dark:bg-black/30
+                bg-[color:var(--surface)]
                 hover:bg-black/5 dark:hover:bg-white/10
                 transition-all duration-200
               "
@@ -153,7 +153,7 @@ export default function Navbar(){
                     p-2.5 rounded-full
                     text-slate-700 dark:text-white/80
                     border border-black/10 dark:border-white/10
-                    bg-white/70 dark:bg-black/30
+                    bg-[color:var(--surface)]
                     hover:bg-black/5 dark:hover:bg-white/10
                     transition-all duration-200
                 "
@@ -189,7 +189,7 @@ export default function Navbar(){
                                     text-[15px] font-medium
                                     text-slate-700 dark:text-white/80
                                     border border-black/10 dark:border-white/10
-                                    bg-white/70 dark:bg-black/30
+                                    bg-[color:var(--surface)]
                                     hover:bg-black/5 dark:hover:bg-white/10
                                     hover:border-black/20 dark:hover:border-white/20
                                     transition-all duration-200
@@ -207,7 +207,7 @@ export default function Navbar(){
                             text-[15px] font-medium
                             text-slate-700 dark:text-white/80
                             border border-black/10 dark:border-white/10
-                            bg-white/70 dark:bg-black/30
+                            bg-[color:var(--surface)]
                             hover:bg-black/5 dark:hover:bg-white/10
                             transition-all duration-200
                             flex items-center justify-between

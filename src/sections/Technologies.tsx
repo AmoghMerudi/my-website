@@ -29,7 +29,7 @@ export default function Technologies() {
         className="
           w-full max-w-4xl
           rounded-3xl
-          bg-white/80 dark:bg-white/5
+          bg-[color:var(--surface)]
           border border-black/10 dark:border-white/10
           backdrop-blur-lg
           p-8 md:p-10
@@ -56,7 +56,7 @@ export default function Technologies() {
                 h-14 w-[190px]
                 flex items-center justify-center
                 rounded-2xl
-                bg-white/70 dark:bg-white/5
+                bg-[color:var(--surface)]
                 border border-black/10 dark:border-white/10
                 text-slate-700 dark:text-white/80
                 text-lg font-medium tracking-wide

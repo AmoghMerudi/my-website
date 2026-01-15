@@ -32,7 +32,7 @@ export default function Contact(){
                 >
                     {/**Contact Card*/}
                     <motion.div 
-                        className = "rounded-2xl border border-black/10 dark:border-white/10 bg-white/80 dark:bg-white/5 p-8"
+                        className = "rounded-2xl border border-black/10 dark:border-white/10 bg-[color:var(--surface)] p-8"
                         variants={{
                             hidden: {opacity: 0, y: 20},
                             visible: {opacity: 1, y: 0},
@@ -93,7 +93,7 @@ export default function Contact(){
 
                     {/**Social*/}
                     <motion.div 
-                        className = "rounded-2xl border border-black/10 dark:border-white/10 bg-white/80 dark:bg-white/5 p-8"
+                        className = "rounded-2xl border border-black/10 dark:border-white/10 bg-[color:var(--surface)] p-8"
                         variants={{
                             hidden: {opacity: 0, y: 20},
                             visible: {opacity: 1, y: 0},

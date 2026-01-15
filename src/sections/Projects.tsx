@@ -37,7 +37,7 @@ export default function Projects() {
                   rounded-2xl
                   overflow-hidden
                   border border-black/10 dark:border-white/10
-                  bg-white/70 dark:bg-white/5
+                  bg-[color:var(--surface)]
                   cursor-pointer
                 "
                 initial={{ opacity: 0, y: 24 }}
@@ -64,7 +64,7 @@ export default function Projects() {
                       absolute top-4 left-4
                       text-xs px-3 py-1
                       rounded-full
-                      bg-white/80 dark:bg-black/60
+                      bg-[color:var(--surface-strong)]
                       border border-black/10 dark:border-white/20
                       text-slate-700 dark:text-white/80
                       backdrop-blur

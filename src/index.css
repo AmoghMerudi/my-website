@@ -6,6 +6,10 @@ html, body, #root{
   height: 100%
 }
 
+html{
+  transition: background-color 300ms ease, color 300ms ease;
+}
+
 body{
   background-color: #c8dcf1;
   background-image:
@@ -17,6 +21,8 @@ body{
   background-attachment: fixed;
   color: #0f172a;
   color-scheme: light;
+  position: relative;
+  transition: background-color 300ms ease, color 300ms ease;
 }
 
 .dark body{
@@ -25,8 +31,45 @@ body{
     radial-gradient(900px 600px at 15% -10%, rgba(59, 130, 246, 0.18), transparent 60%),
     radial-gradient(700px 500px at 85% 10%, rgba(139, 92, 246, 0.16), transparent 60%),
     radial-gradient(800px 600px at 50% 120%, rgba(16, 185, 129, 0.10), transparent 55%);
+  background-repeat: no-repeat;
+  background-size: cover;
   color: white;
   color-scheme: dark;
+}
+
+:root{
+  --grid-color: rgba(15, 23, 42, 0.12);
+  --grid-opacity: 0.5;
+}
+
+.dark{
+  --grid-color: rgba(255, 255, 255, 0.08);
+  --grid-opacity: 0.45;
+}
+
+body::before{
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, var(--grid-color) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px);
+  background-size: 56px 56px;
+  opacity: var(--grid-opacity);
+  filter: blur(1.3px);
+}
+
+:root{
+  --surface: rgba(255, 255, 255, 0.58);
+  --surface-strong: rgba(255, 255, 255, 0.78);
+  --surface-navbar: rgba(255, 255, 255, 0.42);
+}
+
+.dark{
+  --surface: rgba(255, 255, 255, 0.06);
+  --surface-strong: rgba(11, 11, 14, 0.92);
+  --surface-navbar: rgba(17, 30, 57, 0.55);
 }
 
 .no-scrollbar {
