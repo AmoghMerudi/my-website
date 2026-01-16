@@ -15,28 +15,28 @@ export type Project = {
 }
 
 export const projects: Project[] = [
-  {
-    id: "repo-health",
-    title: "Repo Health",
-    subtitle: "AI-powered code review assistant",
-    description:
-      "A GitHub-integrated tool that analyzes repositories, flags technical debt, and posts actionable pull request feedback using AI.",
-    tech: ["Python", "Flask", "OpenAI API", "GitHub Actions"],
-    image: "/projects/repo-health.png",
-    backendFocused: true,
-    architecture: [
-      "GitHub webhook triggers analysis on pull requests",
-      "Flask API processes repository files and metadata",
-      "Static code metrics and heuristics extracted per file",
-      "LLM generates readability and performance feedback",
-      "Structured feedback posted directly to PR as comments",
-    ],
-    results: [
-      { label: "Automation", value: "Zero-touch PR reviews" },
-      { label: "Feedback Quality", value: "Actionable AI suggestions" },
-      { label: "Architecture", value: "Modular, model-agnostic design" },
-    ],
-  },
+  // {
+  //   id: "repo-health",
+  //   title: "Repo Health",
+  //   subtitle: "AI-powered code review assistant",
+  //   description:
+  //     "A GitHub-integrated tool that analyzes repositories, flags technical debt, and posts actionable pull request feedback using AI.",
+  //   tech: ["Python", "Flask", "OpenAI API", "GitHub Actions"],
+  //   image: "/projects/repo-health.png",
+  //   backendFocused: true,
+  //   architecture: [
+  //     "GitHub webhook triggers analysis on pull requests",
+  //     "Flask API processes repository files and metadata",
+  //     "Static code metrics and heuristics extracted per file",
+  //     "LLM generates readability and performance feedback",
+  //     "Structured feedback posted directly to PR as comments",
+  //   ],
+  //   results: [
+  //     { label: "Automation", value: "Zero-touch PR reviews" },
+  //     { label: "Feedback Quality", value: "Actionable AI suggestions" },
+  //     { label: "Architecture", value: "Modular, model-agnostic design" },
+  //   ],
+  // },
   {
     id: "atari",
     title: "Atari",
