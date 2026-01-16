@@ -107,6 +107,25 @@ export default function Hero(){
                         >
                             Get in Touch!
                         </motion.a>
+                        <motion.a
+                            href="/resume.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            whileHover={{y: -4}}
+                            transition={{type: "spring", stiffness: 250, damping: 20}}
+                            className="
+                            px-6 py-3 
+                            rounded-full
+                            bg-slate-900 text-white
+                            text-sm 
+                            font-medium
+                            hover:bg-slate-800
+                            transition
+                            dark:bg-white dark:text-black dark:hover:bg-white/90
+                            "
+                        >
+                            View Resume
+                        </motion.a>
                     </div>
                 </motion.div>
             </motion.div>
