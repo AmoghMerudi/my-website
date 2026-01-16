@@ -38,13 +38,13 @@ body{
 }
 
 :root{
-  --grid-color: rgba(15, 23, 42, 0.12);
-  --grid-opacity: 0.5;
+  --grid-color: rgba(15, 23, 42, 0.22);
+  --grid-opacity: 0.7;
 }
 
 .dark{
-  --grid-color: rgba(255, 255, 255, 0.08);
-  --grid-opacity: 0.45;
+  --grid-color: rgba(255, 255, 255, 0.16);
+  --grid-opacity: 0.6;
 }
 
 body::before{
@@ -53,11 +53,12 @@ body::before{
   inset: 0;
   pointer-events: none;
   background-image:
-    linear-gradient(to right, var(--grid-color) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px);
-  background-size: 56px 56px;
+    radial-gradient(circle, var(--grid-color) 1.6px, transparent 1.6px);
+  background-size: 48px 48px;
+  background-position: var(--dot-x, 0px) var(--dot-y, 0px);
   opacity: var(--grid-opacity);
-  filter: blur(1.3px);
+  filter: blur(0.8px);
+  will-change: background-position;
 }
 
 :root{

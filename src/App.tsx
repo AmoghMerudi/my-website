@@ -1,3 +1,4 @@
+import { useEffect } from "react"
 import Navbar from "./components/Navbar"
 import Hero from "./sections/Hero"
 import About from "./sections/About"
@@ -8,6 +9,50 @@ import Footer from "./components/Footer"
 import ScrollToTop from "./components/ScrollToTop"
 
 function App() {
+  useEffect(() => {
+    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    if (prefersReduced) {
+      return
+    }
+
+    let rafId = 0
+    let targetX = 0
+    let targetY = 0
+    let currentX = 0
+    let currentY = 0
+
+    const update = () => {
+      const width = window.innerWidth || 1
+      const height = window.innerHeight || 1
+      const offsetX = (targetX / width - 0.5) * 32
+      const offsetY = (targetY / height - 0.5) * 32
+
+      currentX += (offsetX - currentX) * 0.08
+      currentY += (offsetY - currentY) * 0.08
+
+      document.documentElement.style.setProperty("--dot-x", `${currentX}px`)
+      document.documentElement.style.setProperty("--dot-y", `${currentY}px`)
+
+      rafId = window.requestAnimationFrame(update)
+    }
+
+    const onMove = (event: PointerEvent) => {
+      targetX = event.clientX
+      targetY = event.clientY
+      if (!rafId) {
+        rafId = window.requestAnimationFrame(update)
+      }
+    }
+
+    window.addEventListener("pointermove", onMove, { passive: true })
+
+    return () => {
+      window.removeEventListener("pointermove", onMove)
+      if (rafId) {
+        window.cancelAnimationFrame(rafId)
+      }
+    }
+  }, [])
 
   return (
     <div className="relative min-h-screen text-slate-900 dark:text-white">
