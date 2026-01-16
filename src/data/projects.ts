@@ -16,7 +16,7 @@ export type Project = {
 
 export const projects: Project[] = [
   // {
-  //   id: "repo-health",
+  //   id: "repo-health",jjkk
   //   title: "Repo Health",
   //   subtitle: "AI-powered code review assistant",
   //   description:
