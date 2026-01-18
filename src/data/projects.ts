@@ -15,28 +15,38 @@ export type Project = {
 }
 
 export const projects: Project[] = [
-  // {
-  //   id: "repo-health",
-  //   title: "Repo Health",
-  //   subtitle: "AI-powered code review assistant",
-  //   description:
-  //     "A GitHub-integrated tool that analyzes repositories, flags technical debt, and posts actionable pull request feedback using AI.",
-  //   tech: ["Python", "Flask", "OpenAI API", "GitHub Actions"],
-  //   image: "/projects/repo-health.png",
-  //   backendFocused: true,
-  //   architecture: [
-  //     "GitHub webhook triggers analysis on pull requests",
-  //     "Flask API processes repository files and metadata",
-  //     "Static code metrics and heuristics extracted per file",
-  //     "LLM generates readability and performance feedback",
-  //     "Structured feedback posted directly to PR as comments",
-  //   ],
-  //   results: [
-  //     { label: "Automation", value: "Zero-touch PR reviews" },
-  //     { label: "Feedback Quality", value: "Actionable AI suggestions" },
-  //     { label: "Architecture", value: "Modular, model-agnostic design" },
-  //   ],
-  // },
+
+  {
+    id: "repo-supervisor",
+    title: "Repo Supervisor",
+    subtitle: "AI-powered pull request intelligence & repo health tracking",
+    description:
+      "An AI-assisted code review system that analyzes pull requests for structural risk, semantic intent, and long-term repository health — surfacing insights that help humans review smarter, not harder.",
+    tech: [
+      "FastAPI",
+      "Node.js",
+      "GitHub Actions",
+      "Gemini API",
+      "MongoDB",
+      "Next.js",
+      "Tailwind CSS",
+    ],
+    image: "/projects/repo-supervisor.png",
+    architecture: [
+      "GitHub Action triggers on pull request open and update events",
+      "PR metadata and diff are sent to a backend analysis service",
+      "Structural heuristics assess size, scope, and sensitive code areas",
+      "Gemini AI performs semantic analysis on code changes",
+      "Signals are synthesized into human-readable risk explanations",
+      "Repository health score is updated and stored over time",
+      "Frontend dashboard visualizes repo health trends and PR insights",
+    ],
+    results: [
+      { label: "Review Quality", value: "Context-aware risk explanations" },
+      { label: "Developer Velocity", value: "Faster, focused code reviews" },
+      { label: "Repo Health", value: "Long-term risk tracking across PRs" },
+    ],
+  },
   {
     id: "atari",
     title: "Atari",
