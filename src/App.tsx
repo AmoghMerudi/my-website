@@ -1,4 +1,5 @@
 import { useEffect } from "react"
+import { Analytics } from "@vercel/analytics/react"
 import Navbar from "./components/Navbar"
 import Hero from "./sections/Hero"
 import About from "./sections/About"
@@ -102,6 +103,7 @@ function App() {
       </main>
       <Footer />
       <ScrollToTop />
+      <Analytics />
     </div>
   )
 }
