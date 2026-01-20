@@ -4,7 +4,7 @@ export default function Hero(){
     return(
         <section
             id="hero"
-            className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 overflow-hidden"
+            className="relative min-h-screen flex items-center justify-center px-4 sm:px-6"
         >
             <div className="absolute inset-0 -z-10 pointer-events-none">
               <div
@@ -18,7 +18,7 @@ export default function Hero(){
               />
             </div>
             <motion.div 
-                className = "max-w-3xl text-center"
+                className = "max-w-3xl text-center overflow-visible"
                 initial = {{opacity: 0, y: 24}}
                 animate = {{opacity: 1, y: 0}}
                 transition = {{duration: 0.9, ease: "easeOut"}}
@@ -33,7 +33,7 @@ export default function Hero(){
                 </motion.p>
 
                 <motion.h1
-                    className="text-4xl sm:text-6xl md:text-8xl font-bold tracking-tight text-slate-900 dark:text-white"
+                    className="text-4xl sm:text-6xl md:text-8xl font-bold tracking-tight leading-[1.12] text-slate-900 dark:text-white overflow-visible"
                     initial={{ opacity: 0, y: 14 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.35 }}
@@ -44,9 +44,13 @@ export default function Hero(){
                         text-4xl sm:text-6xl md:text-8xl
                         font-bold
                         tracking-wide
-                        text-blue-500 dark:text-blue-400
+                        bg-gradient-to-r from-fuchsia-400 via-violet-400 to-cyan-300
+                        text-transparent bg-clip-text
+                        drop-shadow-[0_0_16px_rgba(147,197,253,0.35)]
                         skew-x-[-5deg]
+                        pb-2
                         inline-block
+                        overflow-visible
                         "
                         initial={{ scale: 0.95 }}
                         animate={{ scale: 1 }}
