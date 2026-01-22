@@ -73,6 +73,26 @@ body::before{
   --surface-navbar: rgba(17, 30, 57, 0.55);
 }
 
+.glass {
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  box-shadow: 0 10px 40px rgba(15, 23, 42, 0.08);
+}
+
+.dark .glass {
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+}
+
+.glass-strong {
+  backdrop-filter: blur(22px) saturate(150%);
+  -webkit-backdrop-filter: blur(22px) saturate(150%);
+}
+
+.glass-navbar {
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
+}
+
 .no-scrollbar {
   -ms-overflow-style: none; 
   scrollbar-width: none; 

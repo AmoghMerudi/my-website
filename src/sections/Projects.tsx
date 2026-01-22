@@ -38,6 +38,7 @@ export default function Projects() {
                   overflow-hidden
                   border border-black/10 dark:border-white/10
                   bg-[color:var(--surface)]
+                  glass
                   cursor-pointer
                 "
                 initial={{ opacity: 0, y: 24 }}
@@ -65,6 +66,7 @@ export default function Projects() {
                       text-xs px-3 py-1
                       rounded-full
                       bg-[color:var(--surface-strong)]
+                      glass-strong
                       border border-black/10 dark:border-white/20
                       text-slate-700 dark:text-white/80
                       backdrop-blur

@@ -16,6 +16,9 @@ export default function Footer() {
           <a href="#projects" className="hover:text-slate-900 dark:hover:text-white transition">
             Projects
           </a>
+          <a href="#clients" className="hover:text-slate-900 dark:hover:text-white transition">
+            For Clients
+          </a>
           <a href="#about" className="hover:text-slate-900 dark:hover:text-white transition">
             About
           </a>

@@ -30,6 +30,7 @@ export default function Technologies() {
           w-full max-w-4xl
           rounded-3xl
           bg-[color:var(--surface)]
+          glass
           border border-black/10 dark:border-white/10
           backdrop-blur-lg
           p-6 sm:p-8 md:p-10
@@ -58,6 +59,7 @@ export default function Technologies() {
                 flex items-center justify-center
                 rounded-2xl
                 bg-[color:var(--surface)]
+                glass
                 border border-black/10 dark:border-white/10
                 text-slate-700 dark:text-white/80
                 text-base sm:text-lg font-medium tracking-wide

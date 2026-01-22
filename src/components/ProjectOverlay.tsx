@@ -39,6 +39,7 @@ export default function ProjectOverlay({ project, onClose }: Props) {
           no-scrollbar
           rounded-3xl
           bg-[color:var(--surface-strong)]
+          glass-strong
           border border-black/10 dark:border-white/10
           p-10
         "

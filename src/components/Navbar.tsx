@@ -3,16 +3,24 @@ import { motion, AnimatePresence } from "framer-motion";
 import { FaBars, FaTimes, FaMoon, FaSun } from "react-icons/fa";
 
 const links = [
-    {label: "Projects", href: "#projects"},
-    {label: "About", href: "#about"},
-    {label: "Experience", href: "#experience"},
-    {label: "Contact", href: "#contact"},
-]
+  { label: "Projects", href: "#projects" },
+  { label: "About", href: "#about" },
+  { label: "Experience", href: "#experience" },
+  { label: "Contact", href: "#contact" },
+];
+
+const getInitialTheme = (): "dark" | "light" => {
+  if (typeof window === "undefined") return "dark"
+  const stored = localStorage.getItem("theme")
+  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches
+  if (stored === "light" || stored === "dark") return stored
+  return prefersDark ? "dark" : "light"
+}
 
 export default function Navbar(){
     const [scrolled, setScrolled] = useState(false)
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-    const [theme, setTheme] = useState<"dark" | "light">("dark")
+    const [theme, setTheme] = useState<"dark" | "light">(getInitialTheme)
 
   useEffect(() => {
     const onScroll = () => {
@@ -24,24 +32,12 @@ export default function Navbar(){
   }, [])
 
   useEffect(() => {
-    const stored = localStorage.getItem("theme")
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches
-    const initialTheme =
-      stored === "light" || stored === "dark"
-        ? stored
-        : prefersDark
-          ? "dark"
-          : "light"
-
-    setTheme(initialTheme)
-    document.documentElement.classList.toggle("dark", initialTheme === "dark")
-  }, [])
+    document.documentElement.classList.toggle("dark", theme === "dark")
+    localStorage.setItem("theme", theme)
+  }, [theme])
 
   const toggleTheme = () => {
-    const nextTheme = theme === "dark" ? "light" : "dark"
-    setTheme(nextTheme)
-    document.documentElement.classList.toggle("dark", nextTheme === "dark")
-    localStorage.setItem("theme", nextTheme)
+    setTheme((prev) => (prev === "dark" ? "light" : "dark"))
   }
 
   useEffect(() => {
@@ -73,6 +69,7 @@ export default function Navbar(){
                 rounded-3xl
                 w-[calc(100%-2rem)] sm:w-auto
                 bg-[color:var(--surface-navbar)]
+                glass-navbar
                 backdrop-blur-sm
                 transition-all duration-300
                 ${scrolled ? "shadow-lg": ""}
