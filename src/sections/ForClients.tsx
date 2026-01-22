@@ -130,22 +130,41 @@ export default function ForClients() {
             </h3>
             <div className="grid grid-cols-3 sm:grid-cols-4 gap-4">
               {[
-                "HTML5",
-                "CSS3",
-                "Sass",
-                "Tailwind",
+                // Core languages
                 "JavaScript",
                 "TypeScript",
+                "Python",
+                "Java",
+                // Frontend
+                "HTML5",
+                "CSS3",
                 "React",
                 "Next.js",
+                "Tailwind",
+                // Backend
                 "Node.js",
+                "FastAPI",
+                // Databases
+                "MongoDB",
+                "SQL",
+                // Tooling
                 "Git",
                 "GitHub",
                 "VS Code",
               ].map((item) => (
                 <div
                   key={item}
-                  className="rounded-xl border border-black/10 dark:border-white/10 bg-[color:var(--surface)] glass px-3 py-3 text-xs sm:text-sm text-slate-700 dark:text-white/70 text-center"
+                  className="rounded-xl border border-black/10 dark:border-white/10 bg-[color:var(--surface)] glass px-3 py-3 text-xs sm:text-sm text-slate-700 dark:text-white/70 text-center
+                  transition-all duration-200 ease-out
+                  hover:-translate-y-1
+                  hover:scale-[1.03]
+                hover:bg-black/5 dark:hover:bg-white/10
+                hover:border-purple-400/40 dark:hover:border-purple-900/40
+                  hover:shadow-[0_12px_40px_rgba(168,85,247,0.18)]
+                  dark:hover:shadow-[0_12px_40px_rgba(168,85,247,0.25)]
+
+                  active:scale-[0.98]
+                  "
                 >
                   {item}
                 </div>
@@ -162,7 +181,17 @@ export default function ForClients() {
               ].map((item) => (
                 <div
                   key={item}
-                  className="rounded-xl border border-black/10 dark:border-white/10 bg-[color:var(--surface)] glass px-3 py-2 text-xs text-slate-600 dark:text-white/60 text-center"
+                  className="rounded-xl border border-black/10 dark:border-white/10 bg-[color:var(--surface)] glass px-3 py-2 text-xs text-slate-600 dark:text-white/60 text-center
+                  transition-all duration-200 ease-out
+                  hover:-translate-y-1
+                  hover:scale-[1.03]
+                hover:bg-black/5 dark:hover:bg-white/10
+                hover:border-purple-400/40 dark:hover:border-purple-900/40
+                  hover:shadow-[0_12px_40px_rgba(168,85,247,0.18)]
+                  dark:hover:shadow-[0_12px_40px_rgba(168,85,247,0.25)]
+
+                  active:scale-[0.98]
+                  "
                 >
                   {item}
                 </div>

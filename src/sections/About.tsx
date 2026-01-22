@@ -1,6 +1,6 @@
 import { motion } from "framer-motion"
 
-import Technologies from "./Technologies"
+//import Technologies from "./Technologies"
 import ForClients from "./ForClients"
 
 export default function About() {
@@ -70,9 +70,9 @@ export default function About() {
           </div>
         </div>
 
-        <Technologies />
+        {/* <Technologies /> */}
         <ForClients />
-        
+
       </div>
     </motion.section>
   )
