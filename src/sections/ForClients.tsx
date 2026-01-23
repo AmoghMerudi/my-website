@@ -26,12 +26,12 @@ export default function ForClients() {
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
           <div className={`lg:col-span-7 ${tileBase}`}>
-            <div className="rounded-xl overflow-hidden mb-5 border border-white/10 bg-slate-950/40">
+            <div className="rounded-xl overflow-hidden mb-5 border border-white/10 bg-slate-950">
               <div
                 className="h-56 sm:h-64 bg-cover bg-center"
                 style={{
                   backgroundImage:
-                    "linear-gradient(130deg, rgba(15,23,42,0.2), rgba(15,23,42,0.75)), url('/workflow.png')",
+                    "url('/workflow.png')",
                 }}
               />
             </div>
@@ -66,12 +66,12 @@ export default function ForClients() {
               <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-4">
                 Remote‑friendly across time zones
               </h3>
-              <div className="h-36 rounded-xl overflow-hidden border border-white/10 bg-slate-950/50">
+              <div className="h-36 rounded-xl overflow-hidden border border-white/10 bg-slate-950">
                 <div
                   className="h-full w-full bg-cover bg-center"
                   style={{
                     backgroundImage:
-                      "linear-gradient(130deg, rgba(15,23,42,0.15), rgba(15,23,42,0.6)), url('/timezone.jpg')",
+                      "url('/timezone.jpg')",
                   }}
                 />
               </div>

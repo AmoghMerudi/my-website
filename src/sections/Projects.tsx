@@ -66,8 +66,6 @@ export default function Projects() {
                     "
                   />
 
-                  <div className="absolute inset-0 bg-black/10 dark:bg-black/20" />
-
                   {project.backendFocused && (
                     <div className="
                       absolute top-4 left-4
