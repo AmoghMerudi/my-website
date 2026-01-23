@@ -6,7 +6,7 @@ export default function Hero(){
             id="hero"
             className="relative min-h-screen flex items-center justify-center px-4 sm:px-6"
         >
-            <div className="absolute inset-0 -z-10 pointer-events-none">
+            {/* <div className="absolute inset-0 -z-10 pointer-events-none">
               <div
                 className="
                   absolute top-[15%] left-[20%]
@@ -16,7 +16,7 @@ export default function Hero(){
                   blur-[140px]
                 "
               />
-            </div>
+            </div> */}
             <motion.div 
                 className = "max-w-3xl text-center overflow-visible"
                 initial = {{opacity: 0, y: 24}}

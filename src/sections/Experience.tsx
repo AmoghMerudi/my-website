@@ -25,7 +25,21 @@ export default function Experience() {
             viewport = {{once: false}}
             transition = {{duration: 0.5, ease: "easeOut"}}
         >
-            Work Experience
+          <span className="text-white">Work</span>{" "}
+          <motion.span
+            className="
+              text-4xl sm:text-5xl md:text-6xl
+              font-bold
+              tracking-wide
+              bg-gradient-to-r from-fuchsia-400 via-violet-400 to-cyan-300
+              text-transparent bg-clip-text
+              pb-2
+              inline-block
+              overflow-visible
+            "
+          >
+            Experience
+          </motion.span>
         </motion.h2>
 
        <div

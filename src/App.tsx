@@ -59,7 +59,7 @@ function App() {
     <div className="relative min-h-screen text-slate-900 dark:text-white">
     
       {/* Global ambient background */}
-      <div className="fixed inset-0 -z-50 pointer-events-none overflow-hidden">
+      {/* <div className="fixed inset-0 -z-50 pointer-events-none overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-black/[0.04] via-transparent to-transparent dark:from-white/[0.04]" />
         <div
           className="
@@ -91,7 +91,7 @@ function App() {
             dark:bg-blue-500/20
           "
         />
-      </div>
+      </div> */}
 
       <Navbar />
       <main>

@@ -17,7 +17,15 @@ export default function Projects() {
       >
         <div className="w-full max-w-6xl">
 			<motion.h2 
-				className = "text-4xl sm:text-5xl md:text-6xl text-indigo-600 dark:text-indigo-500 text-left font-bold tracking-tighter mb-10 md:mb-12"
+				className="
+          text-4xl sm:text-5xl md:text-6xl
+          font-bold
+          tracking-wide
+          bg-gradient-to-r from-fuchsia-400 via-violet-400 to-cyan-300
+          text-transparent bg-clip-text
+          pb-2
+          inline-block
+          overflow-visible"
 				initial = {{opacity: 0, y:16 }}
 				whileInView = {{opacity: 1, y: 0}}
 				viewport = {{once: false}}
@@ -26,7 +34,7 @@ export default function Projects() {
 				Projects
 			</motion.h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-10">
+          <div className="mt-6 sm:mt-8 grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-10">
             {projects.map((project) => (
               <motion.div
                 key={project.id}

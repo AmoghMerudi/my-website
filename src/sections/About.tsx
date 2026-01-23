@@ -51,7 +51,9 @@ export default function About() {
           {/* Text content */}
           <div className="max-w-2xl md:text-left text-center mx-auto">
             <h2 className="text-4xl sm:text-5xl font-bold mb-4">
-              Amogh Merudi
+              <span className="bg-gradient-to-r from-violet-400 via-indigo-400 to-sky-400 bg-clip-text text-transparent">
+                Amogh Merudi
+              </span>
             </h2>
 
             <p className="text-slate-600 dark:text-white/70 text-base sm:text-lg md:text-xl leading-relaxed mb-4 max-w-2xl">

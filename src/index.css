@@ -12,10 +12,10 @@ html{
 
 body{
   background-color: #c8dcf1;
-  background-image:
+  /* background-image:
     radial-gradient(900px 600px at 15% -10%, rgba(59, 130, 246, 0.16), transparent 60%),
     radial-gradient(700px 500px at 85% 10%, rgba(139, 92, 246, 0.14), transparent 60%),
-    radial-gradient(800px 600px at 50% 120%, rgba(16, 185, 129, 0.10), transparent 55%);
+    radial-gradient(800px 600px at 50% 120%, rgba(16, 185, 129, 0.10), transparent 55%); */
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
@@ -26,11 +26,11 @@ body{
 }
 
 .dark body{
-  background-color: #000000;
-  background-image:
+  background-color: #0d0d0d;
+  /* background-image:
     radial-gradient(900px 600px at 15% -10%, rgba(59, 130, 246, 0.18), transparent 60%),
     radial-gradient(700px 500px at 85% 10%, rgba(139, 92, 246, 0.16), transparent 60%),
-    radial-gradient(800px 600px at 50% 120%, rgba(16, 185, 129, 0.10), transparent 55%);
+    radial-gradient(800px 600px at 50% 120%, rgba(16, 185, 129, 0.10), transparent 55%); */
   background-repeat: no-repeat;
   background-size: cover;
   color: white;
@@ -53,12 +53,53 @@ body::before{
   inset: 0;
   pointer-events: none;
   background-image:
-    radial-gradient(circle, var(--grid-color) 1.6px, transparent 1.6px);
+    /* linear-gradient(to right, var(--grid-color) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px);
+  background-size: 72px 72px; */
+  radial-gradient(circle, var(--grid-color) 1.6px, transparent 1.6px);
   background-size: 48px 48px;
   background-position: var(--dot-x, 0px) var(--dot-y, 0px);
   opacity: var(--grid-opacity);
-  filter: blur(0.8px);
+  filter: blur(2.5px);
   will-change: background-position;
+}
+
+body::after{
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.18;
+  mix-blend-mode: soft-light;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.5' numOctaves='2' stitchTiles='stitch'/></filter><rect width='120' height='120' filter='url(%23n)' opacity='0.8'/></svg>");
+  background-repeat: repeat;
+  animation: grain-vibrate 0.6s steps(1, end) infinite;
+}
+
+.dark body::after{
+  opacity: 0.12;
+  mix-blend-mode: screen;
+}
+
+@keyframes grain-vibrate {
+  0% {
+    background-position: 0 0;
+  }
+  20% {
+    background-position: 2px -1px;
+  }
+  40% {
+    background-position: -2px 1px;
+  }
+  60% {
+    background-position: 1px 2px;
+  }
+  80% {
+    background-position: -1px -2px;
+  }
+  100% {
+    background-position: 0 0;
+  }
 }
 
 :root{
