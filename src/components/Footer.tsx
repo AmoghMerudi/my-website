@@ -1,7 +1,7 @@
 export default function Footer() {
   return (
     <footer className="px-4 sm:px-6 py-8 sm:py-10 bg-transparent">
-      <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+      <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between ">
 
         <div className="text-center md:text-left">
           <p className="text-base font-medium text-slate-900 dark:text-white">
@@ -12,7 +12,7 @@ export default function Footer() {
           </p>
         </div>
 
-        <nav className="flex flex-wrap items-center justify-center gap-4 md:gap-6 text-sm text-slate-600 dark:text-white/50">
+        {/* <nav className="flex flex-wrap items-center justify-center gap-4 md:gap-6 text-sm text-slate-600 dark:text-white/50">
           <a href="#projects" className="hover:text-slate-900 dark:hover:text-white transition">
             Projects
           </a>
@@ -28,7 +28,7 @@ export default function Footer() {
           <a href="#contact" className="hover:text-slate-900 dark:hover:text-white transition">
             Contact
           </a>
-        </nav>
+        </nav> */}
         
         <div className="text-xs text-slate-500 dark:text-white/30">
           © {new Date().getFullYear()}
