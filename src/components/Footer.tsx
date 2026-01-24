@@ -1,9 +1,9 @@
 export default function Footer() {
   return (
     <footer className="px-4 sm:px-6 py-8 sm:py-10 bg-transparent">
-      <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between ">
+      <div className="max-w-3xl mx-auto flex flex-col md:flex-row items-center justify-center gap-3 md:gap-6">
 
-        <div className="text-center md:text-left">
+        <div className="text-center md:text-right">
           <p className="text-base font-medium text-slate-900 dark:text-white">
             Amogh Merudi
           </p>
