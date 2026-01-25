@@ -63,7 +63,7 @@ export default function About() {
               <br/>
               When I'm not working on projects, I'm probably following Formula 1, taking photos, or listening to music. 
               I like the mix of engineering, strategy, and creativity, whether that's in software or on a race weekend. 
-              I'm always learning, always experimenting, and seeing where curiosity takes me next.
+              I'm always learning, always experimenting, always wanting to make new stuff, and seeing where curiosity takes me next.
             </p>
 
             <p className="text-slate-500 dark:text-white/50 text-base sm:text-lg mt-2">
