@@ -116,7 +116,7 @@ body::after{
 }
 
 .dark{
-  --surface: rgba(255, 255, 255, 0.06);
+  --surface: rgba(0, 0, 0, 0.06);
   --surface-strong: rgba(11, 11, 14, 0.92);
   --surface-navbar: rgba(17, 30, 57, 0.55);
 }

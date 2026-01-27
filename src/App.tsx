@@ -92,7 +92,6 @@ function App() {
           "
         />
       </div> */}
-
       <Navbar />
       <main>
         <Hero />
