@@ -35,7 +35,7 @@ export default function About() {
               className="w-full h-full rounded-full overflow-hidden"
               style={{
                 maskImage:
-                  "radial-gradient(circle at center, black 65%, transparent 85%)",
+                  "radial-gradient(circle at center, black 65%, transparent 75%)",
                 WebkitMaskImage:
                   "radial-gradient(circle at center, black 65%, transparent 85%)",
               }}
@@ -50,11 +50,11 @@ export default function About() {
 
           {/* Text content */}
           <div className="max-w-2xl md:text-left text-center mx-auto">
-            <h2 className="text-4xl sm:text-5xl font-bold mb-4">
+            {/* <h2 className="text-4xl sm:text-5xl font-bold mb-4">
               <span className="bg-gradient-to-r from-violet-400 via-indigo-400 to-sky-400 bg-clip-text text-transparent">
                 Amogh Merudi
               </span>
-            </h2>
+            </h2> */}
 
             <p className="text-slate-600 dark:text-white/70 text-base sm:text-lg md:text-xl leading-relaxed mb-4 max-w-2xl">
               Hey, I'm Amogh. This is my little corner of the internet where I build things, break them, and try to make them better. 

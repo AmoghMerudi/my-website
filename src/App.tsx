@@ -95,9 +95,9 @@ function App() {
       <Navbar />
       <main>
         <Hero />
-        <Projects />
         <About />
         <Experience />
+        <Projects />
         <Contact />
       </main>
       <Footer />

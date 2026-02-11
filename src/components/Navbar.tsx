@@ -1,11 +1,11 @@
-import {useEffect, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FaBars, FaTimes, FaMoon, FaSun } from "react-icons/fa";
+import { FaBars, FaTimes, FaMoon, FaSun, FaPlay, FaPause } from "react-icons/fa";
 
 const links = [
-  { label: "Projects", href: "#projects" },
   { label: "About", href: "#about" },
   { label: "Experience", href: "#experience" },
+  { label: "Projects", href: "#projects" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -17,10 +17,14 @@ const getInitialTheme = (): "dark" | "light" => {
   return prefersDark ? "dark" : "light"
 }
 
+const AUDIO_SRC = "/music.mp3"
+
 export default function Navbar(){
     const [scrolled, setScrolled] = useState(false)
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
     const [theme, setTheme] = useState<"dark" | "light">(getInitialTheme)
+    const [isPlaying, setIsPlaying] = useState(false)
+    const audioRef = useRef<HTMLAudioElement | null>(null)
 
   useEffect(() => {
     const onScroll = () => {
@@ -36,8 +40,32 @@ export default function Navbar(){
     localStorage.setItem("theme", theme)
   }, [theme])
 
+  useEffect(() => {
+    audioRef.current = new Audio(AUDIO_SRC)
+    audioRef.current.loop = true
+    audioRef.current.volume = 0.6
+
+    return () => {
+      audioRef.current?.pause()
+      audioRef.current = null
+    }
+  }, [])
+
   const toggleTheme = () => {
     setTheme((prev) => (prev === "dark" ? "light" : "dark"))
+  }
+
+  const toggleAudio = () => {
+    const audio = audioRef.current
+    if (!audio) return
+
+    if (isPlaying) {
+      audio.pause()
+      setIsPlaying(false)
+      return
+    }
+
+    audio.play().then(() => setIsPlaying(true)).catch(() => setIsPlaying(false))
   }
 
   useEffect(() => {
@@ -142,6 +170,24 @@ export default function Navbar(){
               {theme === "dark" ? <FaSun className="text-sm" /> : <FaMoon className="text-sm" />}
             </button>
 
+            {/**Music Toggle*/}
+            <button
+              onClick={toggleAudio}
+              className="
+                hidden md:flex items-center justify-center
+                ml-2
+                p-2.5 rounded-full
+                text-slate-700 dark:text-white/80
+                border border-black/10 dark:border-white/10
+                bg-[color:var(--surface)]
+                hover:bg-black/5 dark:hover:bg-white/10
+                transition-all duration-200
+              "
+              aria-label={isPlaying ? "Pause music" : "Play music"}
+            >
+              {isPlaying ? <FaPause className="text-sm" /> : <FaPlay className="text-sm" />}
+            </button>
+
             {/**Mobile Menu Button*/}
             <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -214,6 +260,24 @@ export default function Navbar(){
                         >
                           <span>{theme === "dark" ? "Light theme" : "Dark theme"}</span>
                           {theme === "dark" ? <FaSun /> : <FaMoon />}
+                        </button>
+                        <button
+                          onClick={toggleAudio}
+                          className="
+                            px-4 py-3
+                            rounded-xl
+                            text-[15px] font-medium
+                            text-slate-700 dark:text-white/80
+                            border border-black/10 dark:border-white/10
+                            bg-[color:var(--surface)]
+                            hover:bg-black/5 dark:hover:bg-white/10
+                            transition-all duration-200
+                            flex items-center justify-between
+                          "
+                          aria-label={isPlaying ? "Pause music" : "Play music"}
+                        >
+                          <span>{isPlaying ? "Pause music" : "Play music"}</span>
+                          {isPlaying ? <FaPause /> : <FaPlay />}
                         </button>
                     </div>
                 </motion.div>

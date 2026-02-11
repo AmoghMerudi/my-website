@@ -65,11 +65,11 @@ export default function Experience() {
                 absolute top-0
                 w-[3px]
                 bg-gradient-to-b
-                from-indigo-300
+                from-indigo-200
                 to-purple-400
                 origin-top
                 z-10
-                dark:from-indigo-900 dark:to-purple-500
+                dark:from-purple-900 dark:to-indigo-500
               "
             />
           </div>
@@ -79,35 +79,35 @@ export default function Experience() {
             return (
               <div
                 key={exp.id}
-                className="grid grid-cols-1 md:grid-cols-[40px_minmax(220px,280px)_1fr] gap-y-4 md:gap-x-10"
+                className="grid grid-cols-1 md:grid-cols-[40px_minmax(220px,288px)_1fr] gap-y-4 md:gap-x-10"
               >
                 <div className="relative py-6 md:py-14 z-20 hidden md:block">
                   <div
                     className="
                       absolute left-1/2 -translate-x-1/2
-                      h-5 w-5
+                      h-6 w-6
                       flex items-center justify-center
                       rounded-full
-                      bg-indigo-500 dark:bg-indigo-400
+                      bg-purple-600 dark:bg-purple-500
                       shadow-[0_0_18px_rgba(168,85,247,0.7)]
                     "
                   >
-                    <div className="h-2 w-2 rounded-full bg-purple-500" />
+                    <div className="h-2 w-2 rounded-full bg-purple-800" />
                   </div>
                 </div>
 
-                <div className="py-2 md:py-14">
+                <div className="py-3 md:py-10">
                   <h3
                     className={`
-                      text-xl sm:text-2xl font-semibold leading-tight
+                      text-xl sm:text-4xl font-semibold leading-tight
                     `}
                   >
                     {exp.role}
                   </h3>
                 </div>
 
-                <div className="py-2 md:py-14">
-                  <p className="text-base sm:text-lg font-medium text-slate-900 dark:text-white mb-1">
+                <div className="py-2 md:py-12 md:px-18">
+                  <p className="text-base sm:text-xl font-medium text-slate-900 dark:text-white mb-1">
                     {exp.org}
                   </p>
 
@@ -115,9 +115,9 @@ export default function Experience() {
                     {exp.timeframe}
                   </p>
 
-                  <ul className="text-slate-600 dark:text-white/60 space-y-2">
+                  <ul className="text-sm text-slate-600 dark:text-white/60 space-y-1">
                     {exp.highlights.map((h) => (
-                      <li key={h}>• {h}</li>
+                      <li key={h}>-{h}</li>
                     ))}
                   </ul>
                 </div>

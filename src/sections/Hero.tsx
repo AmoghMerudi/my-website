@@ -4,7 +4,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center justify-center px-6 overflow-hidden"
+      className="relative pt-72 pb-32 flex items-center justify-center px-6 overflow-hidden"
     >
       <div className="absolute top-6 left-6 text-sm tracking-wide text-black/60 dark:text-white/60">
         Toronto · UofT CS
