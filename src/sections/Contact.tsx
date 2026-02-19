@@ -9,13 +9,13 @@ export default function Contact(){
         >
             <div className = "w-full max-w-5xl">
                 <motion.h2 
-                    className = "text-4xl sm:text-5xl md:text-6xl text-indigo-600 dark:text-indigo-500 text-center font-bold tracking-tighter mb-10 md:mb-12"
+                    className = "text-3xl sm:text-4xl md:text-5xl text-slate-900 dark:text-white text-center font-extrabold tracking-tight mb-10 md:mb-12"
                     initial = {{opacity: 0, y:16 }}
                     whileInView = {{opacity: 1, y: 0}}
                     viewport = {{once: false}}
                     transition = {{duration: 0.5, ease: "easeOut"}}
                 >
-                    Get in Touch
+                    Get in <span className="accent-text">Touch</span>
                 </motion.h2>
 
                 <motion.div 
@@ -32,20 +32,20 @@ export default function Contact(){
                 >
                     {/**Contact Card*/}
                     <motion.div 
-                        className = "rounded-2xl border border-black/10 dark:border-white/10 bg-[color:var(--surface)] glass p-6 sm:p-8"
+                        className = "rounded-2xl bg-[color:var(--surface)] glass p-6 sm:p-8"
                         variants={{
                             hidden: {opacity: 0, y: 20},
                             visible: {opacity: 1, y: 0},
                         }}
                         transition = {{duration: 0.55, ease: "easeOut"}}
                     >
-                        <h3 className = "text-xl sm:text-2xl font-medium mb-4">
-                            Let's Build something. 
+                        <h3 className = "text-xl sm:text-2xl font-semibold mb-4 text-slate-900 dark:text-white">
+                            Let&apos;s build something meaningful
                         </h3>
 
-                        <p className = "text-slate-700 dark:text-white/85 mb-6 sm:mb-8 text-sm sm:text-base">
-                            Whether it's a project, collaboration or opportunity - my inbox is always open. 
-                            Let's talk about how we can achieve your goals, or connect for a quick chat
+                        <p className = "text-slate-600 dark:text-white/65 mb-6 sm:mb-8 text-sm sm:text-base leading-relaxed">
+                            Whether it&apos;s a project, collaboration, or just a quick
+                            hello, my inbox is open.
                         </p>
 
                         <div className = "space-y-4">
@@ -60,12 +60,12 @@ export default function Contact(){
                                 rounded-full
                                 bg-slate-900 text-white
                                 font-medium
-                                hover:bg-slate-800
+                                hover:opacity-90
                                 transition
-                                dark:bg-white dark:text-black dark:hover:bg-white/90
+                                dark:bg-white dark:text-black dark:hover:opacity-90
                                 "
                             >
-                                Email me
+                                Email Me
                             </motion.a>
 
                             <motion.a
@@ -79,10 +79,11 @@ export default function Contact(){
                                     w-full sm:w-fit
                                     px-5 py-3
                                     rounded-full
-                                    border border-black/20 dark:border-white/20
+                                    border border-black/15 dark:border-white/20
                                     text-slate-700 dark:text-white/80
-                                    hover:text-slate-900 dark:hover:text-white
-                                    hover:border-black/40 dark:hover:border-white/40
+                                    bg-[color:var(--surface)]
+                                    glass
+                                    hover:bg-black/5 dark:hover:bg-white/10
                                     transition
                                 "
                             >
@@ -93,14 +94,14 @@ export default function Contact(){
 
                     {/**Social*/}
                     <motion.div 
-                        className = "rounded-2xl border border-black/10 dark:border-white/10 bg-[color:var(--surface)] glass p-6 sm:p-8"
+                        className = "rounded-2xl bg-[color:var(--surface)] glass p-6 sm:p-8"
                         variants={{
                             hidden: {opacity: 0, y: 20},
                             visible: {opacity: 1, y: 0},
                         }}
                         transition = {{duration: 0.55, ease: "easeOut"}}                        
                     >
-                        <h3 className = "text-xl sm:text-2xl font-medium mb-6">
+                        <h3 className = "text-xl sm:text-2xl font-semibold mb-6 text-slate-900 dark:text-white">
                             Find me online
                         </h3>
 
@@ -117,8 +118,7 @@ export default function Contact(){
                                         justify-between
                                         px-3 sm:px-4 py-2.5 sm:py-3
                                         rounded-xl
-                                        border border-black/10 dark:border-white/10
-                                        hover:border-black/30 dark:hover:border-white/30
+                                        bg-[color:var(--surface-strong)]
                                         hover:bg-black/5 dark:hover:bg-white/5
                                         transition
                                     "
@@ -143,8 +143,7 @@ export default function Contact(){
                                         justify-between
                                         px-3 sm:px-4 py-2.5 sm:py-3
                                         rounded-xl
-                                        border border-black/10 dark:border-white/10
-                                        hover:border-black/30 dark:hover:border-white/30
+                                        bg-[color:var(--surface-strong)]
                                         hover:bg-black/5 dark:hover:bg-white/5
                                         transition
                                     "
@@ -169,8 +168,7 @@ export default function Contact(){
                                         justify-between
                                         px-3 sm:px-4 py-2.5 sm:py-3
                                         rounded-xl
-                                        border border-black/10 dark:border-white/10
-                                        hover:border-black/30 dark:hover:border-white/30
+                                        bg-[color:var(--surface-strong)]
                                         hover:bg-black/5 dark:hover:bg-white/5
                                         transition
                                     "

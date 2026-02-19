@@ -10,29 +10,20 @@ export default function Projects() {
 
   return (
     <>
-      {/* Projects Section */}
       <section
         id="projects"
         className="min-h-screen px-4 sm:px-6 py-16 md:py-24 flex items-center justify-center"
       >
         <div className="w-full max-w-6xl">
-			<motion.h2 
-				className="
-          text-4xl sm:text-5xl md:text-6xl
-          font-bold
-          tracking-wide
-          bg-gradient-to-r from-fuchsia-400 via-violet-400 to-cyan-300
-          text-transparent bg-clip-text
-          pb-2
-          inline-block
-          overflow-visible"
-				initial = {{opacity: 0, y:16 }}
-				whileInView = {{opacity: 1, y: 0}}
-				viewport = {{once: false}}
-				transition = {{duration: 0.5, ease: "easeOut"}}
-			>
-				Projects
-			</motion.h2>
+          <motion.h2
+            className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white"
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+          >
+            <span className="accent-text">Projects</span>
+          </motion.h2>
 
           <div className="mt-6 sm:mt-8 grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-10">
             {projects.map((project) => (
@@ -44,7 +35,6 @@ export default function Projects() {
                   relative
                   rounded-2xl
                   overflow-hidden
-                  border border-black/10 dark:border-white/10
                   bg-[color:var(--surface)]
                   glass
                   cursor-pointer
@@ -54,7 +44,6 @@ export default function Projects() {
                 transition={{ duration: 0.9, ease: "easeOut" }}
                 whileHover={{ y: -6 }}
               >
-                {/* IMAGE */}
                 <div className="relative h-48 sm:h-56 overflow-hidden">
                   <img
                     src={project.image}
@@ -69,22 +58,19 @@ export default function Projects() {
                   {project.backendFocused && (
                     <div className="
                       absolute top-4 left-4
-                      text-xs px-3 py-1
+                      text-xs px-2.5 py-1
                       rounded-full
                       bg-[color:var(--surface-strong)]
                       glass-strong
-                      border border-black/10 dark:border-white/20
                       text-slate-700 dark:text-white/80
-                      backdrop-blur
                     ">
                       Backend-focused
                     </div>
                   )}
                 </div>
 
-                {/* CONTENT */}
                 <div className="p-5 sm:p-6">
-                  <h3 className="text-2xl font-medium mb-1">
+                  <h3 className="text-xl sm:text-2xl font-semibold mb-1 text-slate-900 dark:text-white">
                     {project.title}
                   </h3>
 
@@ -104,8 +90,8 @@ export default function Projects() {
                           text-xs
                           px-3 py-1
                           rounded-full
-                          border border-black/10 dark:border-white/10
-                          text-slate-700 dark:text-white/70
+                          bg-[color:var(--surface-strong)]
+                          text-slate-700 dark:text-white/72
                         "
                       >
                         {t}
@@ -126,7 +112,6 @@ export default function Projects() {
         </div>
       </section>
 
-      {/* Overlay lives OUTSIDE the section */}
       {selectedProject && (
         <ProjectOverlay
           project={selectedProject}

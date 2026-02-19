@@ -11,17 +11,13 @@ export default function ForClients() {
     >
       <div className="w-full max-w-6xl">
         <motion.h2
-          className="text-4xl sm:text-5xl md:text-6xl text-slate-900 dark:text-white text-left font-bold tracking-tighter mb-10 md:mb-12"
+          className="text-3xl sm:text-4xl md:text-5xl text-slate-900 dark:text-white text-left font-extrabold tracking-tight mb-10 md:mb-12"
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false }}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          For{" "}
-          <span className="bg-gradient-to-r from-violet-400 via-indigo-400 to-sky-400 bg-clip-text text-transparent">
-            Clients
-          </span>
-          , with a little curiosity
+          For <span className="accent-text">Clients</span>
         </motion.h2>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
@@ -35,7 +31,7 @@ export default function ForClients() {
                 }}
               />
             </div>
-            <p className="text-xs uppercase tracking-widest text-slate-500 dark:text-white/40 mb-2">
+            <p className="text-xs uppercase tracking-[0.14em] text-slate-500 dark:text-white/40 mb-2">
               How I build
             </p>
             <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-3">
@@ -50,7 +46,7 @@ export default function ForClients() {
 
           <div className="lg:col-span-5 grid gap-6">
             <div className={tileBase}>
-              <p className="text-xs uppercase tracking-widest text-slate-500 dark:text-white/40 mb-2">
+              <p className="text-xs uppercase tracking-[0.14em] text-slate-500 dark:text-white/40 mb-2">
                 Collaboration
               </p>
               <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-3">
@@ -82,7 +78,7 @@ export default function ForClients() {
         <div className="mt-6 grid grid-cols-1 lg:grid-cols-12 gap-6">
           <div className="lg:col-span-4 grid gap-6 lg:grid-rows-[1fr_1fr]">
             <div className={`${tileBase} flex flex-col`}>
-              <p className="text-xs uppercase tracking-widest text-slate-500 dark:text-white/40 mb-2">
+              <p className="text-xs uppercase tracking-[0.14em] text-slate-500 dark:text-white/40 mb-2">
                 Values
               </p>
               <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-3">
@@ -154,17 +150,9 @@ export default function ForClients() {
               ].map((item) => (
                 <div
                   key={item}
-                  className="rounded-xl border border-black/10 dark:border-white/10 bg-[color:var(--surface)] glass px-3 py-3 text-xs sm:text-sm text-slate-700 dark:text-white/70 text-center
-                  transition-all duration-200 ease-out
-                  hover:-translate-y-1
-                  hover:scale-[1.03]
-                hover:bg-black/5 dark:hover:bg-white/10
-                hover:border-purple-400/40 dark:hover:border-purple-900/40
-                  hover:shadow-[0_12px_40px_rgba(168,85,247,0.18)]
-                  dark:hover:shadow-[0_12px_40px_rgba(168,85,247,0.25)]
-
-                  active:scale-[0.98]
-                  "
+                  className="rounded-xl border border-black/10 dark:border-white/10 bg-[color:var(--surface-strong)] px-3 py-3 text-xs sm:text-sm text-slate-700 dark:text-white/70 text-center
+                  transition-colors duration-200
+                  hover:bg-black/[0.03] dark:hover:bg-white/[0.06]"
                 >
                   {item}
                 </div>
@@ -181,17 +169,9 @@ export default function ForClients() {
               ].map((item) => (
                 <div
                   key={item}
-                  className="rounded-xl border border-black/10 dark:border-white/10 bg-[color:var(--surface)] glass px-3 py-2 text-xs text-slate-600 dark:text-white/60 text-center
-                  transition-all duration-200 ease-out
-                  hover:-translate-y-1
-                  hover:scale-[1.03]
-                hover:bg-black/5 dark:hover:bg-white/10
-                hover:border-purple-400/40 dark:hover:border-purple-900/40
-                  hover:shadow-[0_12px_40px_rgba(168,85,247,0.18)]
-                  dark:hover:shadow-[0_12px_40px_rgba(168,85,247,0.25)]
-
-                  active:scale-[0.98]
-                  "
+                  className="rounded-xl border border-black/10 dark:border-white/10 bg-[color:var(--surface-strong)] px-3 py-2 text-xs text-slate-600 dark:text-white/60 text-center
+                  transition-colors duration-200
+                  hover:bg-black/[0.03] dark:hover:bg-white/[0.06]"
                 >
                   {item}
                 </div>
