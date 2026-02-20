@@ -93,6 +93,7 @@ export default function Hero() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.9, ease: "easeOut" }}
       >
+
         <p className="text-xs sm:text-sm uppercase tracking-[0.28em] text-slate-500 dark:text-white/45 mb-6">
           Toronto · Available for work
         </p>
@@ -177,6 +178,11 @@ export default function Hero() {
           </span>
         </motion.h1>
 
+        
+        <p className="text-2xl font-bold text-red-500 mb-2">
+          CS @ UofT
+        </p>
+        
         <motion.p
           className="
             mt-7 mx-auto max-w-2xl
