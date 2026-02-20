@@ -95,7 +95,7 @@ export default function Hero() {
       >
 
         <p className="text-xs sm:text-sm uppercase tracking-[0.28em] text-slate-500 dark:text-white/45 mb-6">
-          Toronto · Available for work
+          Toronto · CS @ UofT · Available for work
         </p>
 
         <motion.h1
@@ -177,11 +177,11 @@ export default function Hero() {
             </span>
           </span>
         </motion.h1>
-
+{/* 
         
         <p className="text-2xl font-bold text-red-500 mb-2">
           CS @ UofT
-        </p>
+        </p> */}
         
         <motion.p
           className="
