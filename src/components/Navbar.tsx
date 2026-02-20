@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { FaBars, FaTimes, FaMoon, FaSun, FaPlay, FaPause } from "react-icons/fa"
 
 const links = [
+  { label: "Home", href: "#hero"},
   { label: "About", href: "#about" },
   { label: "Experience", href: "#experience" },
   { label: "Projects", href: "#projects" },
