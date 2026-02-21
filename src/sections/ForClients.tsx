@@ -3,6 +3,11 @@ import { motion } from "framer-motion"
 const tileBase =
   "relative overflow-hidden rounded-2xl border border-black/10 dark:border-white/10 bg-[color:var(--surface)] glass p-6 backdrop-blur-lg"
 
+const imageReveal = {
+  hidden: { opacity: 0.9, scale: 0.97, filter: "blur(6px)" },
+  visible: { opacity: 1, scale: 1, filter: "blur(0px)" },
+}
+
 export default function ForClients() {
   return (
     <section
@@ -22,7 +27,14 @@ export default function ForClients() {
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
           <div className={`lg:col-span-7 ${tileBase}`}>
-            <div className="rounded-xl overflow-hidden mb-5 border border-white/10 bg-slate-950">
+            <motion.div
+              className="rounded-xl overflow-hidden mb-5 border border-white/10 bg-slate-950"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: false, amount: 0.35 }}
+              variants={imageReveal}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+            >
               <div
                 className="h-56 sm:h-64 bg-cover bg-center"
                 style={{
@@ -30,7 +42,7 @@ export default function ForClients() {
                     "url('/workflow.png')",
                 }}
               />
-            </div>
+            </motion.div>
             <p className="text-xs uppercase tracking-[0.14em] text-slate-500 dark:text-white/40 mb-2">
               How I build
             </p>
@@ -62,7 +74,14 @@ export default function ForClients() {
               <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-4">
                 Remote‑friendly across time zones
               </h3>
-              <div className="h-36 rounded-xl overflow-hidden border border-white/10 bg-slate-950">
+              <motion.div
+                className="h-36 rounded-xl overflow-hidden border border-white/10 bg-slate-950"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: false, amount: 0.45 }}
+                variants={imageReveal}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+              >
                 <div
                   className="h-full w-full bg-cover bg-center"
                   style={{
@@ -70,7 +89,7 @@ export default function ForClients() {
                       "url('/timezone.jpg')",
                   }}
                 />
-              </div>
+              </motion.div>
             </div>
           </div>
         </div>

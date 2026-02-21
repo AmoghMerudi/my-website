@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { FaBars, FaTimes, FaMoon, FaSun, FaPlay, FaPause } from "react-icons/fa"
+import MagneticButton from "./MagneticButton"
+import { useCursor } from "../context/CursorContext"
 
 const links = [
   { label: "Home", href: "#hero"},
@@ -14,7 +16,7 @@ const getInitialTheme = (): "dark" | "light" => {
   if (typeof window === "undefined") return "dark"
   const stored = localStorage.getItem("theme")
   if (stored === "light" || stored === "dark") return stored
-  return "light"
+  return "dark"
 }
 
 const AUDIO_SRC = "/music.mp3"
@@ -30,6 +32,7 @@ export default function Navbar() {
   const [theme, setTheme] = useState<"dark" | "light">(getInitialTheme)
   const [isPlaying, setIsPlaying] = useState(false)
   const audioRef = useRef<HTMLAudioElement | null>(null)
+  const { setVariant } = useCursor()
 
   useEffect(() => {
     document.documentElement.classList.toggle("dark", theme === "dark")
@@ -65,7 +68,6 @@ export default function Navbar() {
   }
 
   useEffect(() => {
-    // Close mobile menu when clicking outside or on a link
     const handleClickOutside = (e: MouseEvent) => {
       const target = e.target as HTMLElement
       if (!target.closest("nav")) {
@@ -96,32 +98,46 @@ export default function Navbar() {
       <div className="w-full flex items-center h-14 px-4 sm:px-6 pointer-events-auto">
         <div className="hidden md:flex items-center gap-6 flex-1 justify-start">
           {links.map((link) => (
-            <a
+            <MagneticButton
               key={link.href}
-              href={link.href}
-              className={`${desktopLinkBase} px-2 py-1`}
+              strength={0.2}
+              cursorVariant="button"
+              as="span"
             >
-              {link.label}
-            </a>
+              <a
+                href={link.href}
+                className={`${desktopLinkBase} px-2 py-1`}
+              >
+                {link.label}
+              </a>
+            </MagneticButton>
           ))}
         </div>
 
         <div className="ml-auto flex items-center gap-2 justify-end">
-          <button
-            onClick={toggleTheme}
-            className={`${iconButtonBase} hidden md:flex`}
-            aria-label="Toggle theme"
-          >
-            {theme === "dark" ? <FaSun className="text-xs" /> : <FaMoon className="text-xs" />}
-          </button>
+          <MagneticButton strength={0.25} as="span">
+            <button
+              onClick={toggleTheme}
+              onMouseEnter={() => setVariant("button")}
+              onMouseLeave={() => setVariant("default")}
+              className={`${iconButtonBase} hidden md:flex`}
+              aria-label="Toggle theme"
+            >
+              {theme === "dark" ? <FaSun className="text-xs" /> : <FaMoon className="text-xs" />}
+            </button>
+          </MagneticButton>
 
-          <button
-            onClick={toggleAudio}
-            className={`${iconButtonBase} hidden md:flex`}
-            aria-label={isPlaying ? "Pause music" : "Play music"}
-          >
-            {isPlaying ? <FaPause className="text-xs" /> : <FaPlay className="text-xs" />}
-          </button>
+          <MagneticButton strength={0.25} as="span">
+            <button
+              onClick={toggleAudio}
+              onMouseEnter={() => setVariant("button")}
+              onMouseLeave={() => setVariant("default")}
+              className={`${iconButtonBase} hidden md:flex`}
+              aria-label={isPlaying ? "Pause music" : "Play music"}
+            >
+              {isPlaying ? <FaPause className="text-xs" /> : <FaPlay className="text-xs" />}
+            </button>
+          </MagneticButton>
 
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}

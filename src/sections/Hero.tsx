@@ -1,5 +1,8 @@
-import { motion } from "framer-motion"
-import { useEffect, useRef, useState } from "react"
+import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion"
+import { useCallback, useEffect, useRef, useState } from "react"
+import MagneticButton from "../components/MagneticButton"
+import { useCursor } from "../context/CursorContext"
+import { useAchievements } from "../context/AchievementContext"
 
 type TrailPoint = {
   id: number
@@ -9,15 +12,41 @@ type TrailPoint = {
   life: number
 }
 
-export default function Hero() {
+type HeroProps = {
+  helloWave: boolean
+  onHelloWaveDone: () => void
+}
+
+const GLITCH_CHARS = "!@#$%^&*()_+-=[]{}|;:',.<>?/~`0123456789"
+
+export default function Hero({ helloWave, onHelloWaveDone }: HeroProps) {
+  const sectionRef = useRef<HTMLElement | null>(null)
   const nameRef = useRef<HTMLSpanElement | null>(null)
   const nextPointId = useRef(0)
   const targetRef = useRef<{ x: number; y: number } | null>(null)
   const smoothRef = useRef<{ x: number; y: number } | null>(null)
+  const clickTimestamps = useRef<number[]>([])
 
   const [isHovering, setIsHovering] = useState(false)
   const [trail, setTrail] = useState<TrailPoint[]>([])
   const [maskSize, setMaskSize] = useState({ w: 0, h: 0 })
+  const [glitching, setGlitching] = useState(false)
+  const [glitchText, setGlitchText] = useState("")
+  const { setVariant } = useCursor()
+  const { unlock } = useAchievements()
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"],
+  })
+  const heroScale = useTransform(scrollYProgress, [0, 0.9], [1, 0.92])
+  const heroOpacity = useTransform(scrollYProgress, [0, 0.85], [1, 0.44])
+  const heroY = useTransform(scrollYProgress, [0, 1], [0, -34])
+  const eyebrowY = useTransform(scrollYProgress, [0, 1], [0, -20])
+  const titleY = useTransform(scrollYProgress, [0, 1], [0, -56])
+  const titleScale = useTransform(scrollYProgress, [0, 1], [1, 0.94])
+  const subtitleY = useTransform(scrollYProgress, [0, 1], [0, -36])
+  const ctaY = useTransform(scrollYProgress, [0, 1], [0, -48])
 
   const handleNameMouseMove = (event: React.MouseEvent<HTMLSpanElement>) => {
     if (!nameRef.current) return
@@ -82,21 +111,74 @@ export default function Hero() {
     return () => cancelAnimationFrame(raf)
   }, [isHovering])
 
+  const triggerGlitch = useCallback(() => {
+    if (glitching) return
+    setGlitching(true)
+    unlock("name-clicker")
+    const original = "AMOGH MERUDI"
+    let frame = 0
+    const maxFrames = 40
+
+    const interval = setInterval(() => {
+      frame++
+      if (frame >= maxFrames) {
+        clearInterval(interval)
+        setGlitchText("")
+        setGlitching(false)
+        return
+      }
+      const progress = frame / maxFrames
+      const resolved = Math.floor(progress * original.length)
+      let text = ""
+      for (let i = 0; i < original.length; i++) {
+        if (original[i] === " ") {
+          text += " "
+        } else if (i < resolved) {
+          text += original[i]
+        } else {
+          text += GLITCH_CHARS[Math.floor(Math.random() * GLITCH_CHARS.length)]
+        }
+      }
+      setGlitchText(text)
+    }, 50)
+  }, [glitching, unlock])
+
+  const handleNameClick = () => {
+    const now = Date.now()
+    clickTimestamps.current.push(now)
+    clickTimestamps.current = clickTimestamps.current.filter((t) => now - t < 2000)
+    if (clickTimestamps.current.length >= 7) {
+      clickTimestamps.current = []
+      triggerGlitch()
+    }
+  }
+
+  useEffect(() => {
+    if (!helloWave) return
+    const t = setTimeout(onHelloWaveDone, 3000)
+    return () => clearTimeout(t)
+  }, [helloWave, onHelloWaveDone])
+
   return (
     <section
+      ref={sectionRef}
       id="hero"
       className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 py-24 sm:py-32"
     >
       <motion.div
         className="max-w-4xl w-full text-center"
+        style={{ scale: heroScale, opacity: heroOpacity, y: heroY }}
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.9, ease: "easeOut" }}
       >
 
-        <p className="text-xs sm:text-sm uppercase tracking-[0.28em] text-slate-500 dark:text-white/45 mb-6">
+        <motion.p
+          className="text-xs sm:text-sm uppercase tracking-[0.28em] text-slate-500 dark:text-white/45 mb-6"
+          style={{ y: eyebrowY }}
+        >
           Toronto · CS @ UofT · Available for work
-        </p>
+        </motion.p>
 
         <motion.h1
           className="
@@ -107,6 +189,7 @@ export default function Hero() {
             text-slate-900
             dark:text-white
           "
+          style={{ y: titleY, scale: titleScale }}
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
@@ -114,19 +197,47 @@ export default function Hero() {
           <span
             ref={nameRef}
             onMouseMove={handleNameMouseMove}
-            onMouseEnter={() => setIsHovering(true)}
+            onMouseEnter={() => { setIsHovering(true); setVariant("name") }}
             onMouseLeave={() => {
               setIsHovering(false)
               targetRef.current = null
               smoothRef.current = null
+              setVariant("default")
             }}
-            className="relative inline-block h-[1.02em] overflow-hidden align-top cursor-default"
+            onClick={handleNameClick}
+            className="relative inline-block h-[1.02em] overflow-hidden align-top cursor-default select-none"
           >
             <span className="block whitespace-nowrap">
-              <span className="text-slate-950 dark:text-white">AMOGH</span>{" "}
-              <span className="bg-gradient-to-r from-orange-500 via-red-500 to-orange-400 bg-clip-text text-transparent">
-                MERUDI
-              </span>
+              {glitching && glitchText ? (
+                <span
+                  className="inline-block text-slate-950 dark:text-white"
+                  style={{
+                    filter: "url(#hero-goo-filter)",
+                    animation: "none",
+                    textShadow: "2px 0 #ef4444, -2px 0 #3b82f6",
+                  }}
+                >
+                  {glitchText.split(" ").map((word, i) => (
+                    <span key={i}>
+                      {i > 0 && " "}
+                      {i === 0 ? (
+                        <span className="text-slate-950 dark:text-white">{word}</span>
+                      ) : (
+                        <span className="bg-gradient-to-r from-orange-500 via-red-500 to-orange-400 bg-clip-text text-transparent">
+                          {word}
+                        </span>
+                      )}
+                    </span>
+                  ))}
+                </span>
+              ) : (
+                <>
+                  <span className="text-slate-950 dark:text-white">AMOGH</span>{" "}
+                  <span className="bg-gradient-to-r from-orange-500 via-red-500 to-orange-400 bg-clip-text text-transparent">
+                    MERUDI
+                  </span>
+                </>
+              )}
             </span>
 
             <svg className="absolute inset-0 w-full h-full pointer-events-none" aria-hidden="true">
@@ -177,66 +288,90 @@ export default function Hero() {
             </span>
           </span>
         </motion.h1>
-{/* 
-        
-        <p className="text-2xl font-bold text-red-500 mb-2">
-          CS @ UofT
-        </p> */}
-        
-        <motion.p
-          className="
-            mt-7 mx-auto max-w-2xl
-            text-base sm:text-lg
-            text-slate-600 dark:text-white/65
-            leading-relaxed
-          "
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.45 }}
-        >
-          I build AI-powered products, clean interfaces, and reliable systems
-          that are practical, polished, and built to ship.
-        </motion.p>
+
+        <AnimatePresence mode="wait">
+          {helloWave ? (
+            <motion.p
+              key="hello-wave"
+              className="
+                mt-7 mx-auto max-w-2xl
+                text-base sm:text-lg
+                leading-relaxed
+                accent-text font-semibold
+              "
+              style={{ y: subtitleY }}
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.4 }}
+            >
+              Hey! Thanks for typing hello 👋
+            </motion.p>
+          ) : (
+            <motion.p
+              key="subtitle"
+              className="
+                mt-7 mx-auto max-w-2xl
+                text-base sm:text-lg
+                text-slate-600 dark:text-white/65
+                leading-relaxed
+              "
+              style={{ y: subtitleY }}
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ delay: 0.45 }}
+            >
+              I build AI-powered products, clean interfaces, and reliable systems
+              that are practical, polished, and built to ship.
+            </motion.p>
+          )}
+        </AnimatePresence>
 
         <motion.div
           className="mt-10 flex items-center justify-center gap-3 sm:gap-4 flex-wrap"
+          style={{ y: ctaY }}
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6 }}
         >
-          <motion.a
-            href="#contact"
-            whileHover={{ y: -4 }}
-            transition={{ type: "spring", stiffness: 250, damping: 18 }}
-            className="
-              px-5 py-2.5 rounded-full
-              bg-black dark:bg-white
-              text-white dark:text-black
-              text-sm font-medium
-              transition
-              hover:opacity-90
-            "
-          >
-            Get in Touch
-          </motion.a>
+          <MagneticButton>
+            <motion.a
+              href="#contact"
+              whileHover={{ y: -4 }}
+              transition={{ type: "spring", stiffness: 250, damping: 18 }}
+              className="
+                px-5 py-2.5 rounded-full
+                bg-black dark:bg-white
+                text-white dark:text-black
+                text-sm font-medium
+                transition
+                hover:opacity-90
+              "
+            >
+              Get in Touch
+            </motion.a>
+          </MagneticButton>
 
-          <motion.a
-            href="/resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            whileHover={{ y: -4 }}
-            transition={{ type: "spring", stiffness: 250, damping: 18 }}
-            className="
-              px-5 py-2.5 rounded-full
-              border border-black/15 dark:border-white/20
-              text-sm font-medium
-              text-slate-900 dark:text-white
-              bg-[color:var(--surface)] glass
-              hover:bg-black/5 dark:hover:bg-white/10
-            "
-          >
-            View Resume
-          </motion.a>
+          <MagneticButton>
+            <motion.a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ y: -4 }}
+              transition={{ type: "spring", stiffness: 250, damping: 18 }}
+              className="
+                px-5 py-2.5 rounded-full
+                border border-black/15 dark:border-white/20
+                text-sm font-medium
+                text-slate-900 dark:text-white
+                bg-[color:var(--surface)] glass
+                hover:bg-black/5 dark:hover:bg-white/10
+              "
+            >
+              View Resume
+            </motion.a>
+          </MagneticButton>
         </motion.div>
       </motion.div>
     </section>

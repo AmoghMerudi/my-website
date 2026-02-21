@@ -3,6 +3,23 @@ import ReactDOM from 'react-dom/client'
 import App from './App'
 import './index.css'
 
+console.log(
+  `%c
+   █████╗ ███╗   ███╗ ██████╗  ██████╗ ██╗  ██╗
+  ██╔══██╗████╗ ████║██╔═══██╗██╔════╝ ██║  ██║
+  ███████║██╔████╔██║██║   ██║██║  ███╗███████║
+  ██╔══██║██║╚██╔╝██║██║   ██║██║   ██║██╔══██║
+  ██║  ██║██║ ╚═╝ ██║╚██████╔╝╚██████╔╝██║  ██║
+  ╚═╝  ╚═╝╚═╝     ╚═╝ ╚═════╝  ╚═════╝ ╚═╝  ╚═╝
+
+  Curious, are we? 👀
+  Reach out → amoghmerudi@gmail.com
+
+  P.S. Try pressing Up Up Down Down.
+`,
+  'color: #f97316; font-family: monospace; font-size: 11px;'
+)
+
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <App />

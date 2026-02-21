@@ -1,9 +1,18 @@
 import { experiences } from "../data/experiences"
-import { motion } from "framer-motion"
+import { motion, useScroll, useTransform } from "framer-motion"
+import { useRef } from "react"
 
 export default function Experience() {
+  const sectionRef = useRef<HTMLElement | null>(null)
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start 75%", "end 40%"],
+  })
+  const lineScaleY = useTransform(scrollYProgress, [0, 1], [0, 1])
+
   return (
     <section
+      ref={sectionRef}
       id="experience"
       className="min-h-screen px-4 sm:px-6 py-16 md:py-24 flex justify-center"
     >
@@ -18,7 +27,12 @@ export default function Experience() {
           Work <span className="accent-text">Experience</span>
         </motion.h2>
 
-        <div className="space-y-6">
+        <div className="relative pl-4 sm:pl-6 space-y-6">
+          <div className="absolute left-0 top-0 bottom-0 w-px bg-black/10 dark:bg-white/10" />
+          <motion.div
+            className="absolute left-0 top-0 bottom-0 w-px origin-top bg-gradient-to-b from-orange-500/90 via-red-500/70 to-transparent"
+            style={{ scaleY: lineScaleY }}
+          />
           {experiences.map((exp) => (
             <motion.article
               key={exp.id}

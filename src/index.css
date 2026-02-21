@@ -91,3 +91,9 @@ body {
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
+
+@media (pointer: fine) {
+  *, *::before, *::after {
+    cursor: none !important;
+  }
+}
