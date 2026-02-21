@@ -261,8 +261,10 @@ export default function Projects() {
       const viewport = viewportRef.current
       const scrollWidth = row.scrollWidth
       const visibleWidth = viewport.clientWidth
+      const cardWidth = 640
+      const centerOffset = (visibleWidth - cardWidth) / 2
       setStartOffset(Math.max(0, (visibleWidth - 560) / 2))
-      setMaxTranslateX(Math.max(0, scrollWidth - visibleWidth))
+      setMaxTranslateX(Math.max(0, scrollWidth - visibleWidth + centerOffset))
     }
 
     updateMaxTranslate()
