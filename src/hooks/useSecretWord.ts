@@ -3,7 +3,7 @@ import { useAchievements, type AchievementId } from "../context/AchievementConte
 
 export function useSecretWord(word: string, onActivate: () => void) {
   const buffer = useRef("")
-  const timer = useRef<ReturnType<typeof setTimeout>>()
+  const timer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined)
   const { unlock } = useAchievements()
 
   useEffect(() => {
