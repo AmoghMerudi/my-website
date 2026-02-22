@@ -6,7 +6,7 @@ export default function Experience() {
   const sectionRef = useRef<HTMLElement | null>(null)
   const { scrollYProgress } = useScroll({
     target: sectionRef,
-    offset: ["start 75%", "end 40%"],
+    offset: ["start 90%", "end 65%"],
   })
   const lineScaleY = useTransform(scrollYProgress, [0, 1], [0, 1])
 

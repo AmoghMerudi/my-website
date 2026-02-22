@@ -287,7 +287,7 @@ export default function Projects() {
 
   const x = useTransform(smoothProgress, [0, 1], [0, -maxTranslateX])
 
-  const sectionHeight = projects.length * 64
+  const sectionHeight = projects.length * 36
 
   return (
     <>
@@ -301,7 +301,7 @@ export default function Projects() {
         <div className="hidden md:flex sticky top-20 h-[calc(100vh-5rem)] overflow-hidden items-center">
           <div className="w-full h-full flex flex-col pt-2 px-4 sm:px-6">
             <motion.h2
-              className="w-full max-w-6xl mx-auto text-3xl sm:text-4xl md:text-5xl text-slate-900 dark:text-white font-extrabold tracking-tight mb-8 md:mb-12"
+              className="w-full max-w-6xl mx-auto text-3xl sm:text-4xl md:text-5xl text-slate-900 dark:text-white font-extrabold tracking-tight mb-24 md:mb-40"
             >
               <span className="accent-text">Projects</span>
             </motion.h2>
@@ -330,7 +330,7 @@ export default function Projects() {
         {/* Mobile: vertical stack */}
         <div className="md:hidden py-16 px-4 sm:px-6 space-y-8">
           <motion.h2
-            className="text-3xl sm:text-4xl text-slate-900 dark:text-white font-extrabold tracking-tight mb-12 md:mb-14"
+            className="text-3xl sm:text-4xl text-slate-900 dark:text-white font-extrabold tracking-tight mb-28 md:mb-40"
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false }}
