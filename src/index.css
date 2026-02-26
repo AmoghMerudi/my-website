@@ -97,3 +97,35 @@ body {
     cursor: none !important;
   }
 }
+
+/* Geometric background block animations */
+@keyframes geo-drift-1 {
+  0%, 100% { transform: translate(0, 0); }
+  50%      { transform: translate(0.6%, -0.4%); }
+}
+
+@keyframes geo-drift-2 {
+  0%, 100% { transform: translate(0, 0); }
+  50%      { transform: translate(-0.5%, 0.5%); }
+}
+
+@keyframes geo-drift-3 {
+  0%, 100% { transform: translate(0, 0); }
+  50%      { transform: translate(0.4%, 0.6%); }
+}
+
+@keyframes geo-drift-4 {
+  0%, 100% { transform: translate(0, 0); opacity: 1; }
+  50%      { transform: translate(-0.3%, -0.5%); opacity: 0.85; }
+}
+
+@keyframes geo-drift-5 {
+  0%, 100% { transform: translate(0, 0); }
+  50%      { transform: translate(0.5%, -0.3%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .geo-block {
+    animation: none !important;
+  }
+}

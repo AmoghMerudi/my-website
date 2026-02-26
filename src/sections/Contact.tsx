@@ -2,6 +2,7 @@ import {motion} from "framer-motion"
 import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa"
 import MagneticButton from "../components/MagneticButton"
 import TiltCard from "../components/TiltCard"
+import MarbleBackground from "../components/MarbleBackground"
 
 const sectionReveal = {
     hidden: { opacity: 0, y: 12 },
@@ -29,10 +30,11 @@ export default function Contact(){
     return(
         <section
             id = "contact"
-            className = "min-h-screen px-4 sm:px-6 py-16 md:py-24 flex items-center justify-center"
+            className = "relative min-h-screen px-4 sm:px-6 pt-8 pb-16 md:pt-12 md:pb-24 flex items-center justify-center -mt-[12vh] md:-mt-[14vh]"
         >
+            <MarbleBackground variant="contact" />
             <motion.div
-                className = "w-full max-w-5xl"
+                className = "relative z-10 w-full max-w-5xl"
                 initial = "hidden"
                 whileInView = "visible"
                 viewport = {{once: false, amount: 0.2}}

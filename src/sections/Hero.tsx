@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion"
 import { useCallback, useEffect, useRef, useState } from "react"
 import MagneticButton from "../components/MagneticButton"
+import MarbleBackground from "../components/MarbleBackground"
 import { useCursor } from "../context/CursorContext"
 import { useAchievements } from "../context/AchievementContext"
 
@@ -163,10 +164,11 @@ export default function Hero({ helloWave, onHelloWaveDone }: HeroProps) {
     <section
       ref={sectionRef}
       id="hero"
-      className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 py-24 sm:py-32"
+      className="relative min-h-screen flex items-end justify-start px-6 sm:px-10 md:px-16 pb-16 sm:pb-20 pt-24 sm:pt-32"
     >
+      <MarbleBackground variant="hero" />
       <motion.div
-        className="max-w-4xl w-full text-center"
+        className="relative z-10 max-w-4xl w-full text-left"
         style={{ scale: heroScale, opacity: heroOpacity, y: heroY }}
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
@@ -294,7 +296,7 @@ export default function Hero({ helloWave, onHelloWaveDone }: HeroProps) {
             <motion.p
               key="hello-wave"
               className="
-                mt-7 mx-auto max-w-2xl
+                mt-7 max-w-2xl
                 text-base sm:text-lg
                 leading-relaxed
                 accent-text font-semibold
@@ -311,7 +313,7 @@ export default function Hero({ helloWave, onHelloWaveDone }: HeroProps) {
             <motion.p
               key="subtitle"
               className="
-                mt-7 mx-auto max-w-2xl
+                mt-7 max-w-2xl
                 text-base sm:text-lg
                 text-slate-600 dark:text-white/65
                 leading-relaxed
@@ -329,7 +331,7 @@ export default function Hero({ helloWave, onHelloWaveDone }: HeroProps) {
         </AnimatePresence>
 
         <motion.div
-          className="mt-10 flex items-center justify-center gap-3 sm:gap-4 flex-wrap"
+          className="mt-10 flex items-center justify-start gap-3 sm:gap-4 flex-wrap"
           style={{ y: ctaY }}
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}

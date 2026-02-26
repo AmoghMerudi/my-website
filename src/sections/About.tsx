@@ -1,18 +1,20 @@
 import { motion } from "framer-motion"
 import ForClients from "./ForClients"
+import MarbleBackground from "../components/MarbleBackground"
 
 export default function About() {
   return (
     <motion.section
       id="about"
-      className="min-h-screen px-4 sm:px-6 py-16 md:py-24 flex items-center justify-center"
+      className="relative min-h-screen px-6 sm:px-10 md:px-16 py-20 md:py-32 flex items-center justify-center"
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: false }}
       transition={{ duration: 0.8, ease: "easeInOut" }}
     >
-      <div className="w-full max-w-6xl flex flex-col gap-20">
-        <div className="grid grid-cols-1 md:grid-cols-[330px_1fr] gap-10 md:gap-12 items-center">
+      <MarbleBackground variant="about" />
+      <div className="relative z-10 w-full max-w-6xl flex flex-col gap-24 md:gap-28">
+        <div className="grid grid-cols-1 md:grid-cols-[300px_1fr] gap-14 md:gap-20 items-center">
           <div className="relative w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 flex items-center justify-center mx-auto">
             <div
               className="w-full h-full rounded-full overflow-hidden"
@@ -32,11 +34,11 @@ export default function About() {
           </div>
 
           <div className="max-w-2xl md:text-left text-center mx-auto">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-5">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-6 md:mb-8">
               About <span className="accent-text">Me</span>
             </h2>
 
-            <p className="text-slate-600 dark:text-white/65 text-base sm:text-lg leading-relaxed mb-4 max-w-2xl">
+            <p className="text-slate-600 dark:text-white/65 text-base sm:text-lg leading-relaxed mb-5 max-w-2xl">
               Hey, I'm Amogh. This is my little corner of the internet where I
               build things, break them, and try to make them better.
               I enjoy coding, but I'm just as interested in design, creativity, and how people interact with the stuff they use.
@@ -47,13 +49,12 @@ export default function About() {
               I'm always learning, always experimenting, always wanting to make new stuff, and seeing where curiosity takes me next.
             </p>
 
-            <p className="text-slate-500 dark:text-white/45 text-sm sm:text-base mt-3">
+            <p className="text-slate-500 dark:text-white/45 text-sm sm:text-base mt-5">
               Currently studying Computer Science at the University of Toronto.
             </p>
           </div>
         </div>
-
-        <ForClients />
+        <ForClients/>
       </div>
     </motion.section>
   )
