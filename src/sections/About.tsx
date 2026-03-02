@@ -1,6 +1,7 @@
 import { motion } from "framer-motion"
 import ForClients from "./ForClients"
 import MarbleBackground from "../components/MarbleBackground"
+import GitHubContributionGraph from "../components/GitHubContributionGraph"
 
 export default function About() {
   return (
@@ -54,6 +55,10 @@ export default function About() {
             </p>
           </div>
         </div>
+        <div>
+          <GitHubContributionGraph username="AmoghMerudi" />
+        </div>
+
         <ForClients/>
       </div>
     </motion.section>
