@@ -106,32 +106,34 @@ function ProjectCardDesktop({
           {project.title}
         </h3>
 
-        <p className="text-sm text-slate-600 dark:text-white/60 mb-4">
+        <p className="text-sm text-slate-600 dark:text-white mb-4">
           {project.subtitle}
         </p>
 
-        <p className="text-slate-600 dark:text-white/60 mb-6">
+        <p className="text-slate-600 dark:text-white mb-6">
           {project.description}
         </p>
 
         <div className="flex flex-wrap gap-2 mb-6">
           {project.tech.map((t) => (
-            <span
+            <div
               key={t}
               className="
+                inline-flex items-center
                 text-xs
                 px-3 py-1
                 rounded-full
-                bg-[color:var(--surface-strong)]
-                text-slate-700 dark:text-white/72
+                border border-black/10 dark:border-white/20
+                bg-black/5 dark:bg-white/10
+                text-slate-700 dark:text-white
               "
             >
               {t}
-            </span>
+            </div>
           ))}
         </div>
 
-        <div className="text-sm text-slate-500 dark:text-white/50 flex items-center gap-2">
+        <div className="text-sm text-slate-500 dark:text-white flex items-center gap-2">
           <span>View project</span>
           <span className="transition-transform group-hover:translate-x-1">→</span>
         </div>
@@ -205,32 +207,34 @@ function ProjectCardMobile({
               {project.title}
             </h3>
 
-            <p className="text-sm text-slate-600 dark:text-white/60 mb-4">
+            <p className="text-sm text-slate-600 dark:text-white mb-4">
               {project.subtitle}
             </p>
 
-            <p className="text-slate-600 dark:text-white/60 mb-6">
+            <p className="text-slate-600 dark:text-white mb-6">
               {project.description}
             </p>
 
             <div className="flex flex-wrap gap-2 mb-6">
               {project.tech.map((t) => (
-                <span
+                <div
                   key={t}
                   className="
+                    inline-flex items-center
                     text-xs
                     px-3 py-1
                     rounded-full
-                    bg-[color:var(--surface-strong)]
-                    text-slate-700 dark:text-white/72
+                    border border-black/10 dark:border-white/20
+                    bg-black/5 dark:bg-white/10
+                    text-slate-700 dark:text-white
                   "
                 >
                   {t}
-                </span>
+                </div>
               ))}
             </div>
 
-            <div className="text-sm text-slate-500 dark:text-white/50 flex items-center gap-2">
+            <div className="text-sm text-slate-500 dark:text-white flex items-center gap-2">
               <span>View project</span>
               <span className="transition-transform group-hover:translate-x-1">→</span>
             </div>
