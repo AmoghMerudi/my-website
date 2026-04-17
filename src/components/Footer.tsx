@@ -1,4 +1,4 @@
-import { useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { useAchievements } from "../context/AchievementContext"
 
@@ -12,6 +12,15 @@ export default function Footer() {
   const [taglineIdx, setTaglineIdx] = useState(0)
   const clickCount = useRef(0)
   const { unlock, unlocked } = useAchievements()
+
+  useEffect(() => {
+    if (!document.querySelector('script[src="https://webring.ca/embed.js"]')) {
+      const script = document.createElement("script")
+      script.src = "https://webring.ca/embed.js"
+      script.defer = true
+      document.body.appendChild(script)
+    }
+  }, [])
 
   const handleYearClick = () => {
     clickCount.current++
@@ -27,6 +36,7 @@ export default function Footer() {
 
   return (
     <footer className="px-4 sm:px-6 py-10 sm:py-12">
+      <div data-webring="ca" data-member="amogh-merudi" className="flex justify-center mb-4" />
       <div className="max-w-4xl mx-auto rounded-2xl bg-[color:var(--surface)] glass px-6 py-5 sm:px-8 sm:py-6 flex flex-col md:flex-row items-center justify-between gap-3">
         <div className="text-center md:text-left">
           <p className="text-base font-semibold text-slate-900 dark:text-white">
