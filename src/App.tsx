@@ -1,5 +1,10 @@
-import { useEffect } from "react"
 import { Analytics } from "@vercel/analytics/react"
+import { motion, useScroll, useSpring } from "framer-motion"
+import { CursorProvider } from "./context/CursorContext"
+import { AchievementProvider } from "./context/AchievementContext"
+import CustomCursor from "./components/CustomCursor"
+import GradientSpotlight from "./components/GradientSpotlight"
+import AchievementToast from "./components/AchievementToast"
 import Navbar from "./components/Navbar"
 import Hero from "./sections/Hero"
 import About from "./sections/About"
@@ -8,93 +13,40 @@ import Experience from "./sections/Experience"
 import Projects from "./sections/Projects"
 import Footer from "./components/Footer"
 import ScrollToTop from "./components/ScrollToTop"
+import { useKonamiCode } from "./hooks/useKonamiCode"
+import { useSecretWord } from "./hooks/useSecretWord"
+import Confetti from "./components/Confetti"
+import MatrixRain from "./components/MatrixRain"
+import { useState } from "react"
 
-function App() {
-  useEffect(() => {
-    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches
-    if (prefersReduced) {
-      return
-    }
+function AppInner() {
+  const { scrollYProgress } = useScroll()
+  const progressX = useSpring(scrollYProgress, {
+    stiffness: 120,
+    damping: 24,
+    mass: 0.2,
+  })
 
-    let rafId = 0
-    let targetX = 0
-    let targetY = 0
-    let currentX = 0
-    let currentY = 0
+  const [showConfetti, setShowConfetti] = useState(false)
+  const [showMatrix, setShowMatrix] = useState(false)
+  const [helloWave, setHelloWave] = useState(false)
 
-    const update = () => {
-      const width = window.innerWidth || 1
-      const height = window.innerHeight || 1
-      const offsetX = (targetX / width - 0.5) * 32
-      const offsetY = (targetY / height - 0.5) * 32
+  useKonamiCode(() => setShowConfetti(true))
 
-      currentX += (offsetX - currentX) * 0.08
-      currentY += (offsetY - currentY) * 0.08
-
-      document.documentElement.style.setProperty("--dot-x", `${currentX}px`)
-      document.documentElement.style.setProperty("--dot-y", `${currentY}px`)
-
-      rafId = window.requestAnimationFrame(update)
-    }
-
-    const onMove = (event: PointerEvent) => {
-      targetX = event.clientX
-      targetY = event.clientY
-      if (!rafId) {
-        rafId = window.requestAnimationFrame(update)
-      }
-    }
-
-    window.addEventListener("pointermove", onMove, { passive: true })
-
-    return () => {
-      window.removeEventListener("pointermove", onMove)
-      if (rafId) {
-        window.cancelAnimationFrame(rafId)
-      }
-    }
-  }, [])
+  useSecretWord("matrix", () => setShowMatrix(true))
+  useSecretWord("hello", () => setHelloWave(true))
 
   return (
     <div className="relative min-h-screen text-slate-900 dark:text-white">
-    
-      {/* Global ambient background */}
-      {/* <div className="fixed inset-0 -z-50 pointer-events-none overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-black/[0.04] via-transparent to-transparent dark:from-white/[0.04]" />
-        <div
-          className="
-            absolute top-[-25%] left-[-15%]
-            w-[800px] h-[800px]
-            bg-purple-300/35
-            rounded-full
-            blur-[140px]
-            dark:bg-purple-600/25
-          "
-        />
-        <div
-          className="
-            absolute top-[20%] right-[-10%]
-            w-[700px] h-[700px]
-            bg-indigo-300/30
-            rounded-full
-            blur-[140px]
-            dark:bg-indigo-500/25
-          "
-        />
-        <div
-          className="
-            absolute bottom-[-25%] left-[25%]
-            w-[700px] h-[700px]
-            bg-blue-300/25
-            rounded-full
-            blur-[160px]
-            dark:bg-blue-500/20
-          "
-        />
-      </div> */}
+      <motion.div
+        className="fixed top-0 left-0 right-0 z-[70] h-[2px] origin-left bg-gradient-to-r from-orange-500 to-red-500"
+        style={{ scaleX: progressX }}
+      />
+      <CustomCursor />
+      <GradientSpotlight />
       <Navbar />
       <main>
-        <Hero />
+        <Hero helloWave={helloWave} onHelloWaveDone={() => setHelloWave(false)} />
         <About />
         <Experience />
         <Projects />
@@ -102,8 +54,21 @@ function App() {
       </main>
       <Footer />
       <ScrollToTop />
+      <AchievementToast />
+      {showConfetti && <Confetti onDone={() => setShowConfetti(false)} />}
+      {showMatrix && <MatrixRain onDone={() => setShowMatrix(false)} />}
       <Analytics />
     </div>
+  )
+}
+
+function App() {
+  return (
+    <AchievementProvider>
+      <CursorProvider>
+        <AppInner />
+      </CursorProvider>
+    </AchievementProvider>
   )
 }
 
