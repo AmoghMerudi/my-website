@@ -72,12 +72,19 @@ function getMonthLabel(weekIndex: number, weeks: Week[]): string | null {
   return null
 }
 
-const LEVEL_COLORS_DARK = ["#161b22", "#0e4429", "#006d32", "#26a641", "#39d353"]
-const LEVEL_COLORS_LIGHT = ["#ebedf0", "#9be9a8", "#40c463", "#30a14e", "#216e39"]
+const LEVEL_COLORS_DARK  = ["#161b22", "#0e4429", "#006d32", "#26a641", "#39d353"]
+const LEVEL_COLORS_LIGHT = ["#e8e3da", "#9be9a8", "#40c463", "#30a14e", "#216e39"]
 
 function levelToColor(level: number, isDark: boolean): string {
-  const colors = isDark ? LEVEL_COLORS_DARK : LEVEL_COLORS_LIGHT
-  return colors[Math.min(level, 4)]
+  return (isDark ? LEVEL_COLORS_DARK : LEVEL_COLORS_LIGHT)[Math.min(level, 4)]
+}
+
+function countToLevel(count: number): number {
+  if (count === 0) return 0
+  if (count <= 3)  return 1
+  if (count <= 6)  return 2
+  if (count <= 9)  return 3
+  return 4
 }
 
 type PublicContribution = {
@@ -132,6 +139,17 @@ export default function GitHubContributionGraph({ username }: Props) {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(false)
   const [tooltip, setTooltip] = useState<{ data: TooltipData; x: number; y: number } | null>(null)
+  const [isDark, setIsDark] = useState(() =>
+    document.documentElement.classList.contains("dark"),
+  )
+
+  useEffect(() => {
+    const observer = new MutationObserver(() =>
+      setIsDark(document.documentElement.classList.contains("dark")),
+    )
+    observer.observe(document.documentElement, { attributeFilter: ["class"] })
+    return () => observer.disconnect()
+  }, [])
 
   useEffect(() => {
     const to = new Date()
@@ -288,16 +306,19 @@ export default function GitHubContributionGraph({ username }: Props) {
                   const dateStr = day?.date ?? ""
                   const data = dateStr ? formatTooltip(dateStr, count) : null
 
+                  const cellColor = levelToColor(
+                    day ? countToLevel(day.contributionCount) : 0,
+                    isDark,
+                  )
+
                   return (
                     <div
                       key={`${colIndex}-${rowIndex}`}
-                      className={`rounded-[2px] transition-colors ${
-                        !day ? "bg-[#ebedf0] dark:bg-[#21262d]" : ""
-                      }`}
+                      className="rounded-[2px] transition-colors"
                       style={{
                         width: SQUARE_SIZE,
                         height: SQUARE_SIZE,
-                        ...(day ? { backgroundColor: day.color } : {}),
+                        backgroundColor: cellColor,
                       }}
                       onMouseEnter={(e) => data && handleMouseEnter(e, data)}
                       onMouseLeave={handleMouseLeave}
@@ -314,11 +335,13 @@ export default function GitHubContributionGraph({ username }: Props) {
           <div className="flex items-center gap-1">
             <span>Less</span>
             <div className="flex items-center gap-[2px]">
-              <span className="w-3 h-3 rounded-sm bg-[#161b22]" />
-              <span className="w-3 h-3 rounded-sm bg-[#0e4429]" />
-              <span className="w-3 h-3 rounded-sm bg-[#006d32]" />
-              <span className="w-3 h-3 rounded-sm bg-[#26a641]" />
-              <span className="w-3 h-3 rounded-sm bg-[#39d353]" />
+              {[0, 1, 2, 3, 4].map((level) => (
+                <span
+                  key={level}
+                  className="w-3 h-3 rounded-sm"
+                  style={{ backgroundColor: levelToColor(level, isDark) }}
+                />
+              ))}
             </div>
             <span>More</span>
           </div>

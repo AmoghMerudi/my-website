@@ -9,70 +9,80 @@ import { useCursor } from "../context/CursorContext"
 
 function ProjectCardDesktop({
   project,
+  index,
   onSelect,
 }: {
   project: Project
+  index: number
   onSelect: (project: Project) => void
 }) {
   const { setVariant } = useCursor()
+  const num = String(index + 1).padStart(2, "0")
 
   return (
     <motion.article
       onClick={() => onSelect(project)}
       onMouseEnter={() => setVariant("card")}
       onMouseLeave={() => setVariant("default")}
-      className="
-        group relative flex-shrink-0
-        w-[520px]
-        rounded-2xl overflow-hidden
-        bg-[color:var(--surface)] glass
-        cursor-pointer
-      "
-      whileHover={{ y: -5 }}
-      transition={{ duration: 0.25, ease: [0.25, 0.46, 0.45, 0.94] }}
+      className="group relative flex-shrink-0 w-[580px] h-[340px] rounded-2xl overflow-hidden cursor-pointer"
+      whileHover={{ y: -6 }}
+      transition={{ duration: 0.28, ease: [0.25, 0.46, 0.45, 0.94] }}
     >
-      <div className="relative h-52 overflow-hidden">
-        <img
-          src={project.image}
-          alt={project.title}
-          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-        />
-        {project.backendFocused && (
-          <div className="absolute top-4 left-4 text-xs px-2.5 py-1 rounded-full bg-[color:var(--surface-strong)] glass-strong text-slate-700 dark:text-white/80">
-            Backend-focused
-          </div>
-        )}
+      {/* Full-bleed image */}
+      <img
+        src={project.image}
+        alt={project.title}
+        className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+      />
+
+      {/* Base gradient — always visible */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-transparent" />
+
+      {/* Hover gradient — expands darkness upward */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+      {/* Backend-focused badge */}
+      {project.backendFocused && (
+        <div className="absolute top-4 left-4 text-[11px] px-2.5 py-1 rounded-full bg-black/30 backdrop-blur-sm border border-white/20 text-white/80 tracking-wide">
+          Backend-focused
+        </div>
+      )}
+
+      {/* Project number — top right */}
+      <div className="absolute top-5 right-5 text-white/20 text-xs font-mono tracking-widest">
+        {num}
       </div>
 
-      <div className="p-6">
-        <h3 className="text-xl font-semibold mb-1 text-slate-900 dark:text-white">
+      {/* Content overlay at bottom */}
+      <div className="absolute bottom-0 inset-x-0 p-6 flex flex-col gap-2">
+        <h3 className="text-[1.4rem] font-bold text-white leading-snug">
           {project.title}
         </h3>
-        <p className="text-sm text-slate-500 dark:text-white/50 mb-3">
-          {project.subtitle}
-        </p>
-        <p className="text-sm text-slate-600 dark:text-white/70 mb-5 leading-relaxed line-clamp-3">
+
+        {/* Description — reveals on hover */}
+        <p className="text-sm text-white/65 leading-relaxed line-clamp-2 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 ease-out">
           {project.description}
         </p>
 
-        <div className="flex flex-wrap gap-1.5 mb-5">
-          {project.tech.map((t) => (
+        {/* Tech chips */}
+        <div className="flex flex-wrap gap-1.5 pt-1">
+          {project.tech.slice(0, 4).map((t) => (
             <span
               key={t}
-              className="
-                inline-flex items-center text-xs px-2.5 py-0.5
-                rounded-full
-                border border-black/10 dark:border-white/15
-                bg-black/5 dark:bg-white/8
-                text-slate-600 dark:text-white/60
-              "
+              className="text-[11px] px-2 py-0.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/15 text-white/60"
             >
               {t}
             </span>
           ))}
+          {project.tech.length > 4 && (
+            <span className="text-[11px] px-2 py-0.5 text-white/35">
+              +{project.tech.length - 4}
+            </span>
+          )}
         </div>
 
-        <div className="text-xs text-slate-400 dark:text-white/30 flex items-center gap-1.5 group-hover:text-orange-500 dark:group-hover:text-orange-400 transition-colors">
+        {/* CTA — reveals on hover */}
+        <div className="flex items-center gap-1.5 text-orange-400 text-xs pt-0.5 translate-y-1 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 delay-75">
           <span>View project</span>
           <span className="transition-transform group-hover:translate-x-0.5">→</span>
         </div>
@@ -88,11 +98,15 @@ const cardReveal = {
 
 function ProjectCardMobile({
   project,
+  index,
   onSelect,
 }: {
   project: Project
+  index: number
   onSelect: (project: Project) => void
 }) {
+  const num = String(index + 1).padStart(2, "0")
+
   return (
     <motion.div
       initial="hidden"
@@ -104,54 +118,54 @@ function ProjectCardMobile({
       <TiltCard className="rounded-2xl">
         <article
           onClick={() => onSelect(project)}
-          className="
-            group relative rounded-2xl overflow-hidden
-            bg-[color:var(--surface)] glass
-            cursor-pointer
-          "
+          className="group relative rounded-2xl overflow-hidden cursor-pointer h-[220px]"
         >
-          <div className="relative h-44 overflow-hidden">
-            <img
-              src={project.image}
-              alt={project.title}
-              className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-            />
-            {project.backendFocused && (
-              <div className="absolute top-4 left-4 text-xs px-2.5 py-1 rounded-full bg-[color:var(--surface-strong)] glass-strong text-slate-700 dark:text-white/80">
-                Backend-focused
-              </div>
-            )}
+          {/* Full-bleed image */}
+          <img
+            src={project.image}
+            alt={project.title}
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+
+          {/* Gradient */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
+
+          {/* Badge */}
+          {project.backendFocused && (
+            <div className="absolute top-4 left-4 text-[11px] px-2.5 py-1 rounded-full bg-black/30 backdrop-blur-sm border border-white/20 text-white/80 tracking-wide">
+              Backend-focused
+            </div>
+          )}
+
+          {/* Number */}
+          <div className="absolute top-5 right-5 text-white/20 text-xs font-mono tracking-widest">
+            {num}
           </div>
 
-          <div className="p-5">
-            <h3 className="text-lg font-semibold mb-1 text-slate-900 dark:text-white">
-              {project.title}
-            </h3>
-            <p className="text-xs text-slate-500 dark:text-white/50 mb-3">
-              {project.subtitle}
-            </p>
-            <p className="text-sm text-slate-600 dark:text-white/70 mb-4 leading-relaxed line-clamp-3">
+          {/* Content */}
+          <div className="absolute bottom-0 inset-x-0 p-5 flex flex-col gap-2">
+            <h3 className="text-xl font-bold text-white leading-snug">{project.title}</h3>
+            <p className="text-sm text-white/60 leading-relaxed line-clamp-2">
               {project.description}
             </p>
-            <div className="flex flex-wrap gap-1.5 mb-4">
-              {project.tech.map((t) => (
+            <div className="flex flex-wrap gap-1.5 pt-0.5">
+              {project.tech.slice(0, 4).map((t) => (
                 <span
                   key={t}
-                  className="
-                    inline-flex items-center text-xs px-2.5 py-0.5
-                    rounded-full
-                    border border-black/10 dark:border-white/15
-                    bg-black/5 dark:bg-white/8
-                    text-slate-600 dark:text-white/60
-                  "
+                  className="text-[11px] px-2 py-0.5 rounded-full bg-white/10 border border-white/15 text-white/60"
                 >
                   {t}
                 </span>
               ))}
+              {project.tech.length > 4 && (
+                <span className="text-[11px] px-2 py-0.5 text-white/35">
+                  +{project.tech.length - 4}
+                </span>
+              )}
             </div>
-            <div className="text-xs text-slate-400 dark:text-white/30 flex items-center gap-1.5">
+            <div className="flex items-center gap-1.5 text-orange-400 text-xs pt-0.5">
               <span>View project</span>
-              <span className="transition-transform group-hover:translate-x-0.5">→</span>
+              <span>→</span>
             </div>
           </div>
         </article>
@@ -219,13 +233,14 @@ export default function Projects() {
             <div ref={viewportRef} className="overflow-hidden">
               <motion.div
                 ref={rowRef}
-                className="flex gap-5"
+                className="flex gap-4"
                 style={{ x, paddingRight: "10vw" }}
               >
-                {projects.map((project) => (
+                {projects.map((project, i) => (
                   <ProjectCardDesktop
                     key={project.id}
                     project={project}
+                    index={i}
                     onSelect={setSelectedProject}
                   />
                 ))}
@@ -248,7 +263,7 @@ export default function Projects() {
         </div>
 
         {/* Mobile: vertical stack */}
-        <div className="md:hidden py-16 px-5 space-y-5">
+        <div className="md:hidden py-16 px-5 space-y-4">
           <motion.h2
             className="text-3xl font-extrabold tracking-tight mb-10"
             initial={{ opacity: 0, y: 16 }}
@@ -259,10 +274,11 @@ export default function Projects() {
             <span className="accent-text">Projects</span>
           </motion.h2>
 
-          {projects.map((project) => (
+          {projects.map((project, i) => (
             <ProjectCardMobile
               key={project.id}
               project={project}
+              index={i}
               onSelect={setSelectedProject}
             />
           ))}

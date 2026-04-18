@@ -48,8 +48,8 @@ function AppInner() {
       <main>
         <Hero helloWave={helloWave} onHelloWaveDone={() => setHelloWave(false)} />
         <About />
-        <Experience />
         <Projects />
+        <Experience />
         <Contact />
       </main>
       <Footer />

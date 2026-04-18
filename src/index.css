@@ -44,12 +44,14 @@ body {
   --surface: rgba(255, 250, 242, 0.74);
   --surface-strong: rgba(255, 252, 246, 0.92);
   --surface-navbar: rgba(255, 252, 246, 0.85);
+  --page-bg: #f4efe6;
 }
 
 .dark {
   --surface: rgba(18, 14, 12, 0.75);
   --surface-strong: rgba(16, 12, 11, 0.94);
   --surface-navbar: rgba(16, 12, 11, 0.84);
+  --page-bg: #090909;
 }
 
 .glass {
