@@ -6,9 +6,9 @@ import { useCursor } from "../context/CursorContext"
 
 const links = [
   { label: "Home", href: "#hero"},
-  { label: "About", href: "#about" },
   { label: "Projects", href: "#projects" },
   { label: "Experience", href: "#experience" },
+  { label: "About", href: "#about" },
   { label: "Contact", href: "#contact" },
 ]
 

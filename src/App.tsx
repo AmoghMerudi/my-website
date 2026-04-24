@@ -47,9 +47,9 @@ function AppInner() {
       <Navbar />
       <main>
         <Hero helloWave={helloWave} onHelloWaveDone={() => setHelloWave(false)} />
-        <About />
         <Projects />
         <Experience />
+        <About />
         <Contact />
       </main>
       <Footer />
