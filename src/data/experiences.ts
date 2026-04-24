@@ -8,6 +8,20 @@ export type Experience = {
 
 export const experiences: Experience[] = [
   {
+    id: "growme-lead-dev",
+    role: "Lead Developer Intern",
+    org: "GrowME AI",
+    timeframe: "Apr 2026 – Present",
+    highlights: [
+      "Leading end-to-end design and development of the GrowME MVP web application across five core modules",
+      "Building the Student Onboarding & DNA Profiling module including multi-step questionnaire, profile dashboard, and completeness engine",
+      "Developing the AI Recommendation Engine with student vectorisation, university corpus integration, cosine similarity matching, XGBoost admit probability scoring, and LLM-powered action plan generation",
+      "Building the Counselor Dashboard with student roster, annotation tools, and progress monitoring",
+      "Implementing authentication and user management with role-based access control",
+      "Setting up cloud infrastructure on AWS (ECS, RDS PostgreSQL, S3) with CI/CD via GitHub Actions",
+    ],
+  },
+  {
     id: "treehouse-rnd",
     role: "Research & Development Intern",
     org: "Tree House Ventures",
