@@ -16,6 +16,55 @@ export type Project = {
 
 export const projects: Project[] = [
 
+
+{
+  "id": "0to1",
+  "title": "0to1",
+  "subtitle": "Multi-agent AI operating system that builds and runs companies end-to-end",
+  "description": "A swarm of specialized AI agents — CEO, CTO, Developer, Designer, CMO, and Marketing — that autonomously plan, build, deploy, and monetize a business from a single idea prompt. Agents communicate exclusively through a Convex-backed ticketing system, giving every action a full audit trail. Proven by generating real Stripe revenue from a children's picture book company it built itself.",
+  "tech": [
+    "Next.js",
+    "TypeScript",
+    "Convex",
+    "Python",
+    "FastAPI",
+    "Vercel AI SDK",
+    "E2B",
+    "Composio",
+    "mem0",
+    "Stripe",
+    "Tailwind CSS"
+  ],
+  "image": "/projects/0to1.png",
+  "architecture": [
+    "Each agent is a Vercel function running an AI SDK generateText loop with role-specific tools",
+    "Convex owns the ticket schema, real-time subscriptions, and the agent communication bus",
+    "Agents never call each other directly — all coordination flows through typed Convex mutations",
+    "E2B sandboxes give the Developer agent an isolated environment to run and test code",
+    "Composio provides a unified tool layer for GitHub, Vercel, Stripe, social, and email",
+    "mem0 handles semantic, multi-tenant agent memory scoped per business instance",
+    "Circuit breakers and per-agent ticket caps prevent runaway agent loops",
+    "Next.js App Router dashboard: real-time kanban, activity feed, and live revenue tracker"
+  ],
+  "results": [
+    {
+      "label": "Autonomy",
+      "value": "Full CEO → Developer → Designer → Marketing loop with artifact-attached tickets"
+    },
+    {
+      "label": "Revenue",
+      "value": "Real Stripe payments processed by a business the system planned and built itself"
+    },
+    {
+      "label": "Observability",
+      "value": "Real-time kanban, tool call activity feed, and live revenue tracker"
+    },
+    {
+      "label": "Deploy",
+      "value": "Frontend on Vercel, agents as Vercel functions, Convex cloud, E2B sandboxes"
+    }
+  ]
+},
 {
   "id": "pitwall",
   "title": "Pitwall",
